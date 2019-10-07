@@ -1,0 +1,6 @@
+[submodule "external/glog"]
+	path = external/glog
+	url = git@github.com:google/glog.git
+[submodule "external/gflags"]
+	path = external/gflags
+	url = git@github.com:gflags/gflags.git
