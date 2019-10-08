@@ -1,6 +1,6 @@
 # ./CMakeLists.txt
 
-# Requires CMake 3.12, but also works with 3.13 policies set.
+# Requires CMake 3.12
 cmake_minimum_required( VERSION 3.12 )
 
 project( bigbrain
