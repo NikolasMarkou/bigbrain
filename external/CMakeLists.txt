@@ -6,5 +6,5 @@ set(WITH_GFLAGS OFF)
 
 add_subdirectory( glog )
 
-add_subdirectory( protobuf )
+add_subdirectory( protobuf/cmake )
 
