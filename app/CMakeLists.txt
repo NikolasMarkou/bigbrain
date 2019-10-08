@@ -7,10 +7,10 @@ project( bigbrainapp
          VERSION 0.0.1
          DESCRIPTION "Deploying production ready ai models" )
 
-# Freely available calculator app.
+# Setup executable and dependencies
 add_executable( bigbrainapp )
 target_sources( bigbrainapp PRIVATE "src/main.cpp" )
 target_link_libraries( bigbrainapp
-    PRIVATE bigbrain::bigbrain )
+    PRIVATE bigbrain::bigbrain glog::glog gflags::gflags)
 
 
