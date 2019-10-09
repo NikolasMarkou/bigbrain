@@ -26,7 +26,8 @@ target_link_libraries(
     bigbrainlib 
     PUBLIC 
     bigbrain_objlib 
-    glog::glog)
+    glog::glog
+    protobuf::libprotobuf)
 
 # Create ALIAS targets.
 add_library( bigbrain::bigbrain ALIAS bigbrainlib )

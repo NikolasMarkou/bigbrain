@@ -17,7 +17,8 @@ target_sources( bigbrainapp
 
 # Add library dependencies
 target_link_libraries( bigbrainapp
-    PRIVATE bigbrain::bigbrain 
+    PRIVATE 
+        bigbrain::bigbrain 
         glog::glog 
         gflags::gflags)
 

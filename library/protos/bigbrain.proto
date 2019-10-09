@@ -1,5 +1,7 @@
 syntax = "proto3";
 
+package bigbrain;
+
 enum IOType {
     OTHER = 0;
     IMAGE = 1;
@@ -53,3 +55,16 @@ message AIModelContainer {
     // for the future
     bytes other = 7;
 }
+
+service AIService {
+    rpc ReportCapabilities (AICapabilityRequest) returns (AICapabilityResponse) {}
+}
+
+message AICapabilityRequest{
+
+};
+
+message AICapabilityResponse{
+    repeated AIModelInformation models_information = 1;
+};
+
