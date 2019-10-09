@@ -1,0 +1,55 @@
+syntax = "proto3";
+
+enum IOType {
+    OTHER = 0;
+    IMAGE = 1;
+    TEXT = 2;
+    AUDIO = 3;
+    GRAPH = 4;
+    VECTOR = 5;
+    MATRIX = 6;
+    BBOX = 7;
+}
+
+message AICapability {
+    AIModelInformation information = 1;
+    AIModelContainer container = 2;
+}
+
+// holds information about the model
+message AIModelInformation {
+    // name of the model, not uid
+    string name = 1;
+    // description of the model
+    string description = 2;
+    // path (unique)
+    string path = 3;
+    // inputs for inference
+    repeated IOType inputs = 4;
+    // outputs for inference
+    repeated IOType outputs = 5;
+    // set to true if mode updateable
+    bool updateable = 6;
+    // inputs for update
+    repeated IOType update_inputs = 7;
+    // outputs for update
+    repeated IOType update_outputs = 8;
+}
+
+// holds the model weights and state
+message AIModelContainer {
+    // hash of the total structure
+    string hash = 1;
+    // hash of the model
+    string hash_model = 2;
+    // hash of the state
+    string hash_state = 3;
+    // timestamp of creation
+    string timestamp = 4;
+    // model data 
+    bytes model = 5;
+    // state data (if no state keep empty)
+    bytes state = 6;
+    // for the future
+    bytes other = 7;
+}

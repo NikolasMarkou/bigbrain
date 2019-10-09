@@ -1,0 +1,15 @@
+syntax = "proto3";
+import "./messages.proto";
+
+service AIService {
+    rpc ReportCapabilities (AICapabilityRequest) returns (AICapabilityResponse) {}
+}
+
+message AICapabilityRequest{
+
+};
+
+message AICapabilityResponse{
+    repeated AIModelInformation models_information = 1;
+};
+
