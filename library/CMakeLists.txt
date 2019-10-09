@@ -22,7 +22,11 @@ target_compile_features( bigbrain_objlib
 
 # A shared library for basic-math functionality.
 add_library( bigbrainlib SHARED )
-target_link_libraries( bigbrainlib PUBLIC bigbrain_objlib )
+target_link_libraries( 
+    bigbrainlib 
+    PUBLIC 
+    bigbrain_objlib 
+    glog::glog)
 
 # Create ALIAS targets.
 add_library( bigbrain::bigbrain ALIAS bigbrainlib )
