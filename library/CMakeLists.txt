@@ -4,7 +4,8 @@
 cmake_minimum_required( VERSION 3.12 )
 
 project( BigBrainLibs
-         VERSION 1.0.0
+         VERSION 0.0.1
+         LANGUAGES C CXX
          DESCRIPTION "The internal bigbrain libraries." )
 
 # An OBJECT-library
@@ -21,20 +22,18 @@ target_sources( bigbrain_objlib
 target_include_directories( bigbrain_objlib
     PUBLIC 
     ${CMAKE_CURRENT_SOURCE_DIR}/include
-    ${CMAKE_SOURCE_DIR}/external/grpc/include )
+    ${CMAKE_SOURCE_DIR}/external/grpc/include
+    ${CMAKE_SOURCE_DIR}/external/glog )
 
 target_compile_features( bigbrain_objlib
     PUBLIC cxx_constexpr )
 
-# A shared library for basic-math functionality.
 add_library( bigbrainlib SHARED )
-target_link_libraries( 
-    bigbrainlib 
-    PUBLIC 
-    bigbrain_objlib 
-    grpc++
-    glog::glog
-    protobuf::libprotobuf)
+target_link_libraries( bigbrainlib 
+    PRIVATE
+        glog::glog
+        bigbrain_objlib 
+        protobuf::libprotobuf)
 
 # Add dependncies to th grpc target
 add_dependencies(
