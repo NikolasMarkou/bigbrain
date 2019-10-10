@@ -3,17 +3,17 @@
 # Requires CMake 3.12
 cmake_minimum_required( VERSION 3.12 )
 
-project( bigbrainlib
+project( libbigbrain
          VERSION 0.0.1
          LANGUAGES CXX
          DESCRIPTION "The internal bigbrain libraries." )
 
 # An OBJECT-library
-add_library( bigbrainlib SHARED )
+add_library( bigbrain SHARED )
 
 file(GLOB SRC_FILES src/generated/*.cc)
 
-target_sources( bigbrainlib
+target_sources( bigbrain
     PRIVATE   
         src/bigbrain.cpp ${SRC_FILES}
     PUBLIC    
@@ -21,7 +21,7 @@ target_sources( bigbrainlib
     INTERFACE 
         ${CMAKE_CURRENT_SOURCE_DIR}/include/bigbrainAPI.h )
 
-target_include_directories(bigbrainlib
+target_include_directories(bigbrain
     PUBLIC 
         $<INSTALL_INTERFACE:include>
         $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
@@ -30,7 +30,7 @@ target_include_directories(bigbrainlib
 )
 
 # Add library dependencies
-target_link_libraries( bigbrainlib
+target_link_libraries( bigbrain
     PRIVATE  
         glog::glog 
         grpc++
@@ -38,17 +38,17 @@ target_link_libraries( bigbrainlib
         libprotobuf)
 
 target_compile_features(
-    bigbrainlib 
+    bigbrain 
     PRIVATE cxx_std_11
     PUBLIC cxx_constexpr)
 
 target_compile_options(
-    bigbrainlib PRIVATE -Werror)
+    bigbrain PRIVATE -Werror)
 
 # Add dependncies to th grpc target
-add_dependencies(bigbrainlib
+add_dependencies(bigbrain
     protoc
     grpc_cpp_plugin)
 
 # Create ALIAS targets.
-add_library( bigbrain::bigbrain ALIAS bigbrainlib )
+add_library( bigbrain::bigbrain ALIAS bigbrain )
