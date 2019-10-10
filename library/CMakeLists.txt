@@ -18,6 +18,10 @@ target_sources( bigbrain_objlib
     PUBLIC    ${CMAKE_CURRENT_SOURCE_DIR}/include/bigbrain.h
     INTERFACE ${CMAKE_CURRENT_SOURCE_DIR}/include/bigbrainAPI.h )
 
+target_link_libraries( bigbrain_objlib 
+    PRIVATE
+        glog::glog )
+
 # Required include search-paths and constexpr support.
 target_include_directories( bigbrain_objlib
     PUBLIC 

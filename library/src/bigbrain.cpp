@@ -1,7 +1,7 @@
 #include <memory>
 #include <string>
 #include <iostream>
-//#include <glog/logging.h>
+#include <glog/logging.h>
 
 #include <grpcpp/grpcpp.h>
 
