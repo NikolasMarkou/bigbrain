@@ -20,7 +20,8 @@ target_sources( bigbrain_objlib
 
 target_link_libraries( bigbrain_objlib 
     PRIVATE
-        glog::glog )
+        glog::glog
+        leveldb )
 
 # Required include search-paths and constexpr support.
 target_include_directories( bigbrain_objlib

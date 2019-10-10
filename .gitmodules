@@ -1,12 +1,9 @@
 [submodule "external/glog"]
 	path = external/glog
 	url = git@github.com:google/glog.git
-[submodule "external/gflags"]
-	path = external/gflags
-	url = git@github.com:gflags/gflags.git
-[submodule "external/protobuf"]
-	path = external/protobuf
-	url = git@github.com:protocolbuffers/protobuf.git
 [submodule "external/grpc"]
 	path = external/grpc
 	url = git@github.com:grpc/grpc.git
+[submodule "external/leveldb"]
+	path = external/leveldb
+	url = git@github.com:google/leveldb.git
