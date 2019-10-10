@@ -3,47 +3,51 @@
 # Requires CMake 3.12
 cmake_minimum_required( VERSION 3.12 )
 
-project( BigBrainLibs
+project( bigbrainlib
          VERSION 0.0.1
-         LANGUAGES C CXX
+         LANGUAGES CXX
          DESCRIPTION "The internal bigbrain libraries." )
 
 # An OBJECT-library
-add_library( bigbrain_objlib OBJECT )
+add_library( bigbrainlib SHARED )
 
 file(GLOB SRC_FILES src/generated/*.cc)
 
-target_sources( bigbrain_objlib
-    PRIVATE   src/bigbrain.cpp ${SRC_FILES}
-    PUBLIC    ${CMAKE_CURRENT_SOURCE_DIR}/include/bigbrain.h
-    INTERFACE ${CMAKE_CURRENT_SOURCE_DIR}/include/bigbrainAPI.h )
+target_sources( bigbrainlib
+    PRIVATE   
+        src/bigbrain.cpp ${SRC_FILES}
+    PUBLIC    
+        ${CMAKE_CURRENT_SOURCE_DIR}/include/bigbrain.h
+    INTERFACE 
+        ${CMAKE_CURRENT_SOURCE_DIR}/include/bigbrainAPI.h )
 
-target_link_libraries( bigbrain_objlib 
-    PRIVATE
-        glog::glog
-        leveldb )
-
-# Required include search-paths and constexpr support.
-target_include_directories( bigbrain_objlib
+target_include_directories(bigbrainlib
     PUBLIC 
-    ${CMAKE_CURRENT_SOURCE_DIR}/include
-    ${CMAKE_SOURCE_DIR}/external/grpc/include
-    ${CMAKE_SOURCE_DIR}/external/glog )
-
-target_compile_features( bigbrain_objlib
-    PUBLIC cxx_constexpr )
-
-add_library( bigbrainlib SHARED )
-target_link_libraries( bigbrainlib 
+        $<INSTALL_INTERFACE:include>
+        $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
     PRIVATE
-        glog::glog
-        bigbrain_objlib 
-        protobuf::libprotobuf)
+        ${CMAKE_CURRENT_SOURCE_DIR}/src
+)
+
+# Add library dependencies
+target_link_libraries( bigbrainlib
+    PRIVATE  
+        glog::glog 
+        grpc++
+        leveldb
+        libprotobuf)
+
+target_compile_features(
+    bigbrainlib 
+    PRIVATE cxx_std_11
+    PUBLIC cxx_constexpr)
+
+target_compile_options(
+    bigbrainlib PRIVATE -Werror)
 
 # Add dependncies to th grpc target
-add_dependencies(
-    bigbrainlib
-    grpc++
+add_dependencies(bigbrainlib
+    protoc
     grpc_cpp_plugin)
 
 # Create ALIAS targets.

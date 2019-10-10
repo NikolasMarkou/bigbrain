@@ -2,6 +2,8 @@
 #include <glog/logging.h>
 #include <gflags/gflags.h>
 
+#include <bigbrain.h>
+
 DEFINE_bool(debug, true, "Show extra debug messages");
 
 int main(int argc, char** argv)
@@ -10,5 +12,7 @@ int main(int argc, char** argv)
     gflags::ParseCommandLineFlags(&argc, &argv, true);
     
     LOG(INFO) << "Working";
+
+    
     return 0;
 }

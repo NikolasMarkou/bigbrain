@@ -1,11 +1,16 @@
 #include <memory>
 #include <string>
 #include <iostream>
+// key value store
+#include <leveldb/db.h>
+// logging
 #include <glog/logging.h>
-
+// rpc calls
 #include <grpcpp/grpcpp.h>
-
+// protoc auto generated code
 #include "generated/bigbrain.grpc.pb.h"
+
+//----------------------------------------------------------------
 
 using grpc::Status;
 using grpc::Server;
@@ -15,6 +20,8 @@ using grpc::ServerContext;
 using bigbrain::AIService;
 using bigbrain::AICapabilityRequest;
 using bigbrain::AICapabilityResponse;
+
+//----------------------------------------------------------------
 
 // Logic and data behind the server's behavior.
 class AIServiceImpl final : public AIService::Service {
@@ -36,8 +43,10 @@ class AIServiceImpl final : public AIService::Service {
     }
 };
 
+//----------------------------------------------------------------
+
 void run_server(
-    const std::string url = "0.0.0.0:50051")
+    const std::string url)
 {
     std::string server_address(url);
     AIServiceImpl service;
@@ -54,3 +63,5 @@ void run_server(
     // responsible for shutting down the server for this call to ever return.
     server->Wait();
 }
+
+//----------------------------------------------------------------
