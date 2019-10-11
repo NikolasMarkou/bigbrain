@@ -1,6 +1,11 @@
 # bigbrain
 
-A extendible and robust way of deploying production level deep learning models
+A extendible and robust way of deploying production level deep learning models.
+
+I have two basic target frameworks that i want to support in mind
+
+* tensorflow 
+* pytorch
 
 ## Dependencies
 
