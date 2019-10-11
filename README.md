@@ -9,11 +9,15 @@ I have two basic target frameworks that i want to support in mind
 
 ## Dependencies
 
-I tried to use ```CMake``` best practises however if you have any trouble building, please open an issue
+I tried to use ```CMake``` best practises however if you have any trouble building, please open an issue.
 
-All dependencies are included as ```submodules```
+Most of the dependencies are included as ```submodules```
 
-To load all dependencies
+```bash
+apt install zlib zlib1g-dev
+```
+
+To load all submodules
 
 ```bash
 git submodule update --init --recursive
