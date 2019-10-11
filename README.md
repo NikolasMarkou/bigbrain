@@ -4,6 +4,8 @@ A extendible and robust way of deploying production level deep learning models
 
 ## Dependencies
 
+I tried to use ```CMake``` best practises however if you have any trouble building, please open an issue
+
 All dependencies are included as ```submodules```
 
 To load all dependencies
