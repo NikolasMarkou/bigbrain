@@ -1,6 +1,6 @@
 # bigbrain
 
-A extendible and robust way of deploying production level deep learning models.
+An extendible and robust way of deploying production level deep learning models as a service.
 
 I have two basic target frameworks that i want to support in mind
 
