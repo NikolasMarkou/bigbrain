@@ -41,20 +41,20 @@ make bigbrain_client
 
 ### Generating gRPC code
 
-To always build ```grpc_ccp_plugin```. I've added the ```grpc_ccp_plugin``` as a dependency for the ```libbigbrain```.
+To build ```grpc_ccp_plugin```, I've added the `it as a dependency for the ```libbigbrain```.
 
 The gRPC plugin ```grpc_ccp_plugin``` will be created in the directory ```${BUILD_DIR}/grpc``` 
 
 To use it from the project's ```${ROOT_DIR}``` : 
 
 ```bash
-./build/external/grpc/third_party/protobuf/protoc \
+${BUILD_DIR}/external/grpc/third_party/protobuf/protoc \
     -I=./library/protos/ \
     --grpc_out=./library/src/generated \
     --plugin=protoc-gen-grpc=./build/external/grpc/grpc_cpp_plugin \
     ./library/protos/bigbrain.proto
 
-./build/external/grpc/third_party/protobuf/protoc \
+${BUILD_DIR}/external/grpc/third_party/protobuf/protoc \
     -I=./library/protos/ \
     --cpp_out=./library/src/generated \
     ./library/protos/bigbrain.proto
