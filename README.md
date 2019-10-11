@@ -36,16 +36,16 @@ To always build ```grpc_ccp_plugin```. I've added the ```grpc_ccp_plugin``` as a
 
 The gRPC plugin ```grpc_ccp_plugin``` will be created in the directory ```${BUILD_DIR}/grpc``` 
 
-To use it from the project'ss ```${ROOT_DIR}``` : 
+To use it from the project's ```${ROOT_DIR}``` : 
 
 ```bash
-protoc \
+./build/external/grpc/third_party/protobuf/protoc \
     -I=./library/protos/ \
     --grpc_out=./library/src/generated \
     --plugin=protoc-gen-grpc=./build/external/grpc/grpc_cpp_plugin \
     ./library/protos/bigbrain.proto
 
-protoc \
+./build/external/grpc/third_party/protobuf/protoc \
     -I=./library/protos/ \
     --cpp_out=./library/src/generated \
     ./library/protos/bigbrain.proto
