@@ -4,7 +4,7 @@
 cmake_minimum_required( VERSION 3.12 )
 
 project( libbigbrain
-         VERSION 0.0.1
+         VERSION 0.1.0
          LANGUAGES CXX
          DESCRIPTION "The internal bigbrain libraries." )
 
@@ -15,7 +15,9 @@ file(GLOB SRC_FILES src/generated/*.cc)
 
 target_sources( bigbrain
     PRIVATE   
-        src/bigbrain.cpp ${SRC_FILES}
+        src/bigbrain.cpp 
+        src/AIServiceImpl.cpp
+        ${SRC_FILES}
     PUBLIC    
         ${CMAKE_CURRENT_SOURCE_DIR}/include/bigbrain.h
     INTERFACE 
