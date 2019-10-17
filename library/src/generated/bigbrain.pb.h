@@ -48,7 +48,7 @@ struct TableStruct_bigbrain_2eproto {
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::AuxillaryParseTableField aux[]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
-  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[5]
+  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[6]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::FieldMetadata field_metadata[];
   static const ::PROTOBUF_NAMESPACE_ID::internal::SerializationTable serialization_table[];
@@ -68,6 +68,9 @@ extern AICapabilityResponseDefaultTypeInternal _AICapabilityResponse_default_ins
 class AIModelContainer;
 class AIModelContainerDefaultTypeInternal;
 extern AIModelContainerDefaultTypeInternal _AIModelContainer_default_instance_;
+class AIModelFramework;
+class AIModelFrameworkDefaultTypeInternal;
+extern AIModelFrameworkDefaultTypeInternal _AIModelFramework_default_instance_;
 class AIModelInformation;
 class AIModelInformationDefaultTypeInternal;
 extern AIModelInformationDefaultTypeInternal _AIModelInformation_default_instance_;
@@ -77,25 +80,26 @@ template<> ::bigbrain::AICapability* Arena::CreateMaybeMessage<::bigbrain::AICap
 template<> ::bigbrain::AICapabilityRequest* Arena::CreateMaybeMessage<::bigbrain::AICapabilityRequest>(Arena*);
 template<> ::bigbrain::AICapabilityResponse* Arena::CreateMaybeMessage<::bigbrain::AICapabilityResponse>(Arena*);
 template<> ::bigbrain::AIModelContainer* Arena::CreateMaybeMessage<::bigbrain::AIModelContainer>(Arena*);
+template<> ::bigbrain::AIModelFramework* Arena::CreateMaybeMessage<::bigbrain::AIModelFramework>(Arena*);
 template<> ::bigbrain::AIModelInformation* Arena::CreateMaybeMessage<::bigbrain::AIModelInformation>(Arena*);
 PROTOBUF_NAMESPACE_CLOSE
 namespace bigbrain {
 
 enum IOType : int {
-  OTHER = 0,
-  IMAGE = 1,
-  TEXT = 2,
-  AUDIO = 3,
-  GRAPH = 4,
-  VECTOR = 5,
-  MATRIX = 6,
-  BBOX = 7,
+  IO_OTHER = 0,
+  IO_IMAGE = 1,
+  IO_TEXT = 2,
+  IO_AUDIO = 3,
+  IO_GRAPH = 4,
+  IO_VECTOR = 5,
+  IO_MATRIX = 6,
+  IO_BBOX = 7,
   IOType_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<::PROTOBUF_NAMESPACE_ID::int32>::min(),
   IOType_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<::PROTOBUF_NAMESPACE_ID::int32>::max()
 };
 bool IOType_IsValid(int value);
-constexpr IOType IOType_MIN = OTHER;
-constexpr IOType IOType_MAX = BBOX;
+constexpr IOType IOType_MIN = IO_OTHER;
+constexpr IOType IOType_MAX = IO_BBOX;
 constexpr int IOType_ARRAYSIZE = IOType_MAX + 1;
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* IOType_descriptor();
@@ -112,7 +116,172 @@ inline bool IOType_Parse(
   return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<IOType>(
     IOType_descriptor(), name, value);
 }
+enum ModelFramework : int {
+  FRAMEWORK_TENSORFLOW = 0,
+  FRAMEWORK_PYTORCH = 1,
+  FRAMEWORK_OTHER = 2,
+  ModelFramework_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<::PROTOBUF_NAMESPACE_ID::int32>::min(),
+  ModelFramework_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<::PROTOBUF_NAMESPACE_ID::int32>::max()
+};
+bool ModelFramework_IsValid(int value);
+constexpr ModelFramework ModelFramework_MIN = FRAMEWORK_TENSORFLOW;
+constexpr ModelFramework ModelFramework_MAX = FRAMEWORK_OTHER;
+constexpr int ModelFramework_ARRAYSIZE = ModelFramework_MAX + 1;
+
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* ModelFramework_descriptor();
+template<typename T>
+inline const std::string& ModelFramework_Name(T enum_t_value) {
+  static_assert(::std::is_same<T, ModelFramework>::value ||
+    ::std::is_integral<T>::value,
+    "Incorrect type passed to function ModelFramework_Name.");
+  return ::PROTOBUF_NAMESPACE_ID::internal::NameOfEnum(
+    ModelFramework_descriptor(), enum_t_value);
+}
+inline bool ModelFramework_Parse(
+    const std::string& name, ModelFramework* value) {
+  return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<ModelFramework>(
+    ModelFramework_descriptor(), name, value);
+}
 // ===================================================================
+
+class AIModelFramework :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:bigbrain.AIModelFramework) */ {
+ public:
+  AIModelFramework();
+  virtual ~AIModelFramework();
+
+  AIModelFramework(const AIModelFramework& from);
+  AIModelFramework(AIModelFramework&& from) noexcept
+    : AIModelFramework() {
+    *this = ::std::move(from);
+  }
+
+  inline AIModelFramework& operator=(const AIModelFramework& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline AIModelFramework& operator=(AIModelFramework&& from) noexcept {
+    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const AIModelFramework& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const AIModelFramework* internal_default_instance() {
+    return reinterpret_cast<const AIModelFramework*>(
+               &_AIModelFramework_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    0;
+
+  void Swap(AIModelFramework* other);
+  friend void swap(AIModelFramework& a, AIModelFramework& b) {
+    a.Swap(&b);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline AIModelFramework* New() const final {
+    return CreateMaybeMessage<AIModelFramework>(nullptr);
+  }
+
+  AIModelFramework* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<AIModelFramework>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const AIModelFramework& from);
+  void MergeFrom(const AIModelFramework& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  #if GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  #else
+  bool MergePartialFromCodedStream(
+      ::PROTOBUF_NAMESPACE_ID::io::CodedInputStream* input) final;
+  #endif  // GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+  void SerializeWithCachedSizes(
+      ::PROTOBUF_NAMESPACE_ID::io::CodedOutputStream* output) const final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* InternalSerializeWithCachedSizesToArray(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(AIModelFramework* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "bigbrain.AIModelFramework";
+  }
+  private:
+  inline ::PROTOBUF_NAMESPACE_ID::Arena* GetArenaNoVirtual() const {
+    return nullptr;
+  }
+  inline void* MaybeArenaPtr() const {
+    return nullptr;
+  }
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_bigbrain_2eproto);
+    return ::descriptor_table_bigbrain_2eproto.file_level_metadata[kIndexInFileMessages];
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // string version = 2;
+  void clear_version();
+  static const int kVersionFieldNumber = 2;
+  const std::string& version() const;
+  void set_version(const std::string& value);
+  void set_version(std::string&& value);
+  void set_version(const char* value);
+  void set_version(const char* value, size_t size);
+  std::string* mutable_version();
+  std::string* release_version();
+  void set_allocated_version(std::string* version);
+
+  // .bigbrain.ModelFramework framework = 1;
+  void clear_framework();
+  static const int kFrameworkFieldNumber = 1;
+  ::bigbrain::ModelFramework framework() const;
+  void set_framework(::bigbrain::ModelFramework value);
+
+  // @@protoc_insertion_point(class_scope:bigbrain.AIModelFramework)
+ private:
+  class HasBitSetters;
+
+  ::PROTOBUF_NAMESPACE_ID::internal::InternalMetadataWithArena _internal_metadata_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr version_;
+  int framework_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_bigbrain_2eproto;
+};
+// -------------------------------------------------------------------
 
 class AICapability :
     public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:bigbrain.AICapability) */ {
@@ -156,7 +325,7 @@ class AICapability :
                &_AICapability_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    0;
+    1;
 
   void Swap(AICapability* other);
   friend void swap(AICapability& a, AICapability& b) {
@@ -295,7 +464,7 @@ class AIModelInformation :
                &_AIModelInformation_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    1;
+    2;
 
   void Swap(AIModelInformation* other);
   friend void swap(AIModelInformation& a, AIModelInformation& b) {
@@ -508,7 +677,7 @@ class AIModelContainer :
                &_AIModelContainer_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    2;
+    3;
 
   void Swap(AIModelContainer* other);
   friend void swap(AIModelContainer& a, AIModelContainer& b) {
@@ -718,7 +887,7 @@ class AICapabilityRequest :
                &_AICapabilityRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    3;
+    4;
 
   void Swap(AICapabilityRequest* other);
   friend void swap(AICapabilityRequest& a, AICapabilityRequest& b) {
@@ -837,7 +1006,7 @@ class AICapabilityResponse :
                &_AICapabilityResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    4;
+    5;
 
   void Swap(AICapabilityResponse* other);
   friend void swap(AICapabilityResponse& a, AICapabilityResponse& b) {
@@ -934,6 +1103,75 @@ class AICapabilityResponse :
   #pragma GCC diagnostic push
   #pragma GCC diagnostic ignored "-Wstrict-aliasing"
 #endif  // __GNUC__
+// AIModelFramework
+
+// .bigbrain.ModelFramework framework = 1;
+inline void AIModelFramework::clear_framework() {
+  framework_ = 0;
+}
+inline ::bigbrain::ModelFramework AIModelFramework::framework() const {
+  // @@protoc_insertion_point(field_get:bigbrain.AIModelFramework.framework)
+  return static_cast< ::bigbrain::ModelFramework >(framework_);
+}
+inline void AIModelFramework::set_framework(::bigbrain::ModelFramework value) {
+  
+  framework_ = value;
+  // @@protoc_insertion_point(field_set:bigbrain.AIModelFramework.framework)
+}
+
+// string version = 2;
+inline void AIModelFramework::clear_version() {
+  version_.ClearToEmptyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+}
+inline const std::string& AIModelFramework::version() const {
+  // @@protoc_insertion_point(field_get:bigbrain.AIModelFramework.version)
+  return version_.GetNoArena();
+}
+inline void AIModelFramework::set_version(const std::string& value) {
+  
+  version_.SetNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:bigbrain.AIModelFramework.version)
+}
+inline void AIModelFramework::set_version(std::string&& value) {
+  
+  version_.SetNoArena(
+    &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:bigbrain.AIModelFramework.version)
+}
+inline void AIModelFramework::set_version(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  version_.SetNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:bigbrain.AIModelFramework.version)
+}
+inline void AIModelFramework::set_version(const char* value, size_t size) {
+  
+  version_.SetNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:bigbrain.AIModelFramework.version)
+}
+inline std::string* AIModelFramework::mutable_version() {
+  
+  // @@protoc_insertion_point(field_mutable:bigbrain.AIModelFramework.version)
+  return version_.MutableNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+}
+inline std::string* AIModelFramework::release_version() {
+  // @@protoc_insertion_point(field_release:bigbrain.AIModelFramework.version)
+  
+  return version_.ReleaseNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+}
+inline void AIModelFramework::set_allocated_version(std::string* version) {
+  if (version != nullptr) {
+    
+  } else {
+    
+  }
+  version_.SetAllocatedNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), version);
+  // @@protoc_insertion_point(field_set_allocated:bigbrain.AIModelFramework.version)
+}
+
+// -------------------------------------------------------------------
+
 // AICapability
 
 // .bigbrain.AIModelInformation information = 1;
@@ -1739,6 +1977,8 @@ AICapabilityResponse::models_information() const {
 
 // -------------------------------------------------------------------
 
+// -------------------------------------------------------------------
+
 
 // @@protoc_insertion_point(namespace_scope)
 
@@ -1750,6 +1990,11 @@ template <> struct is_proto_enum< ::bigbrain::IOType> : ::std::true_type {};
 template <>
 inline const EnumDescriptor* GetEnumDescriptor< ::bigbrain::IOType>() {
   return ::bigbrain::IOType_descriptor();
+}
+template <> struct is_proto_enum< ::bigbrain::ModelFramework> : ::std::true_type {};
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::bigbrain::ModelFramework>() {
+  return ::bigbrain::ModelFramework_descriptor();
 }
 
 PROTOBUF_NAMESPACE_CLOSE

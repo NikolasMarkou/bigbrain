@@ -81,15 +81,6 @@ AIServiceImpl::ReportCapabilities(
     const AICapabilityRequest* request,
     AICapabilityResponse* reply) 
 {
-    auto model_information = reply->add_models_information();
-    {
-        std::string name = "test_name";
-        model_information->set_allocated_name(&name);
-
-        std::string description = "test_description";
-        model_information->set_allocated_description(&description);
-    }
-
     leveldb::Iterator* it = m_db->NewIterator(leveldb::ReadOptions());
     {
         for (it->SeekToFirst(); it->Valid(); it->Next()) {
