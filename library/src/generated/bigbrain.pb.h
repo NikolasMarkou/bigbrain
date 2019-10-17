@@ -531,40 +531,40 @@ class AIModelInformation :
 
   // accessors -------------------------------------------------------
 
-  // repeated .bigbrain.IOType inputs = 4;
+  // repeated .bigbrain.IOType inputs = 5;
   int inputs_size() const;
   void clear_inputs();
-  static const int kInputsFieldNumber = 4;
+  static const int kInputsFieldNumber = 5;
   ::bigbrain::IOType inputs(int index) const;
   void set_inputs(int index, ::bigbrain::IOType value);
   void add_inputs(::bigbrain::IOType value);
   const ::PROTOBUF_NAMESPACE_ID::RepeatedField<int>& inputs() const;
   ::PROTOBUF_NAMESPACE_ID::RepeatedField<int>* mutable_inputs();
 
-  // repeated .bigbrain.IOType outputs = 5;
+  // repeated .bigbrain.IOType outputs = 6;
   int outputs_size() const;
   void clear_outputs();
-  static const int kOutputsFieldNumber = 5;
+  static const int kOutputsFieldNumber = 6;
   ::bigbrain::IOType outputs(int index) const;
   void set_outputs(int index, ::bigbrain::IOType value);
   void add_outputs(::bigbrain::IOType value);
   const ::PROTOBUF_NAMESPACE_ID::RepeatedField<int>& outputs() const;
   ::PROTOBUF_NAMESPACE_ID::RepeatedField<int>* mutable_outputs();
 
-  // repeated .bigbrain.IOType update_inputs = 7;
+  // repeated .bigbrain.IOType update_inputs = 8;
   int update_inputs_size() const;
   void clear_update_inputs();
-  static const int kUpdateInputsFieldNumber = 7;
+  static const int kUpdateInputsFieldNumber = 8;
   ::bigbrain::IOType update_inputs(int index) const;
   void set_update_inputs(int index, ::bigbrain::IOType value);
   void add_update_inputs(::bigbrain::IOType value);
   const ::PROTOBUF_NAMESPACE_ID::RepeatedField<int>& update_inputs() const;
   ::PROTOBUF_NAMESPACE_ID::RepeatedField<int>* mutable_update_inputs();
 
-  // repeated .bigbrain.IOType update_outputs = 8;
+  // repeated .bigbrain.IOType update_outputs = 9;
   int update_outputs_size() const;
   void clear_update_outputs();
-  static const int kUpdateOutputsFieldNumber = 8;
+  static const int kUpdateOutputsFieldNumber = 9;
   ::bigbrain::IOType update_outputs(int index) const;
   void set_update_outputs(int index, ::bigbrain::IOType value);
   void add_update_outputs(::bigbrain::IOType value);
@@ -607,9 +607,18 @@ class AIModelInformation :
   std::string* release_path();
   void set_allocated_path(std::string* path);
 
-  // bool updateable = 6;
+  // .bigbrain.AIModelFramework framework = 4;
+  bool has_framework() const;
+  void clear_framework();
+  static const int kFrameworkFieldNumber = 4;
+  const ::bigbrain::AIModelFramework& framework() const;
+  ::bigbrain::AIModelFramework* release_framework();
+  ::bigbrain::AIModelFramework* mutable_framework();
+  void set_allocated_framework(::bigbrain::AIModelFramework* framework);
+
+  // bool updateable = 7;
   void clear_updateable();
-  static const int kUpdateableFieldNumber = 6;
+  static const int kUpdateableFieldNumber = 7;
   bool updateable() const;
   void set_updateable(bool value);
 
@@ -629,6 +638,7 @@ class AIModelInformation :
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr name_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr description_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr path_;
+  ::bigbrain::AIModelFramework* framework_;
   bool updateable_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_bigbrain_2eproto;
@@ -1433,7 +1443,58 @@ inline void AIModelInformation::set_allocated_path(std::string* path) {
   // @@protoc_insertion_point(field_set_allocated:bigbrain.AIModelInformation.path)
 }
 
-// repeated .bigbrain.IOType inputs = 4;
+// .bigbrain.AIModelFramework framework = 4;
+inline bool AIModelInformation::has_framework() const {
+  return this != internal_default_instance() && framework_ != nullptr;
+}
+inline void AIModelInformation::clear_framework() {
+  if (GetArenaNoVirtual() == nullptr && framework_ != nullptr) {
+    delete framework_;
+  }
+  framework_ = nullptr;
+}
+inline const ::bigbrain::AIModelFramework& AIModelInformation::framework() const {
+  const ::bigbrain::AIModelFramework* p = framework_;
+  // @@protoc_insertion_point(field_get:bigbrain.AIModelInformation.framework)
+  return p != nullptr ? *p : *reinterpret_cast<const ::bigbrain::AIModelFramework*>(
+      &::bigbrain::_AIModelFramework_default_instance_);
+}
+inline ::bigbrain::AIModelFramework* AIModelInformation::release_framework() {
+  // @@protoc_insertion_point(field_release:bigbrain.AIModelInformation.framework)
+  
+  ::bigbrain::AIModelFramework* temp = framework_;
+  framework_ = nullptr;
+  return temp;
+}
+inline ::bigbrain::AIModelFramework* AIModelInformation::mutable_framework() {
+  
+  if (framework_ == nullptr) {
+    auto* p = CreateMaybeMessage<::bigbrain::AIModelFramework>(GetArenaNoVirtual());
+    framework_ = p;
+  }
+  // @@protoc_insertion_point(field_mutable:bigbrain.AIModelInformation.framework)
+  return framework_;
+}
+inline void AIModelInformation::set_allocated_framework(::bigbrain::AIModelFramework* framework) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaNoVirtual();
+  if (message_arena == nullptr) {
+    delete framework_;
+  }
+  if (framework) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena = nullptr;
+    if (message_arena != submessage_arena) {
+      framework = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, framework, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  framework_ = framework;
+  // @@protoc_insertion_point(field_set_allocated:bigbrain.AIModelInformation.framework)
+}
+
+// repeated .bigbrain.IOType inputs = 5;
 inline int AIModelInformation::inputs_size() const {
   return inputs_.size();
 }
@@ -1463,7 +1524,7 @@ AIModelInformation::mutable_inputs() {
   return &inputs_;
 }
 
-// repeated .bigbrain.IOType outputs = 5;
+// repeated .bigbrain.IOType outputs = 6;
 inline int AIModelInformation::outputs_size() const {
   return outputs_.size();
 }
@@ -1493,7 +1554,7 @@ AIModelInformation::mutable_outputs() {
   return &outputs_;
 }
 
-// bool updateable = 6;
+// bool updateable = 7;
 inline void AIModelInformation::clear_updateable() {
   updateable_ = false;
 }
@@ -1507,7 +1568,7 @@ inline void AIModelInformation::set_updateable(bool value) {
   // @@protoc_insertion_point(field_set:bigbrain.AIModelInformation.updateable)
 }
 
-// repeated .bigbrain.IOType update_inputs = 7;
+// repeated .bigbrain.IOType update_inputs = 8;
 inline int AIModelInformation::update_inputs_size() const {
   return update_inputs_.size();
 }
@@ -1537,7 +1598,7 @@ AIModelInformation::mutable_update_inputs() {
   return &update_inputs_;
 }
 
-// repeated .bigbrain.IOType update_outputs = 8;
+// repeated .bigbrain.IOType update_outputs = 9;
 inline int AIModelInformation::update_outputs_size() const {
   return update_outputs_.size();
 }

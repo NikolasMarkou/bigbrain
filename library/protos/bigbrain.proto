@@ -38,16 +38,18 @@ message AIModelInformation {
     string description = 2;
     // path (unique)
     string path = 3;
+    // how the model was created
+    AIModelFramework framework = 4;
     // inputs for inference
-    repeated IOType inputs = 4;
+    repeated IOType inputs = 5;
     // outputs for inference
-    repeated IOType outputs = 5;
+    repeated IOType outputs = 6;
     // set to true if mode updateable
-    bool updateable = 6;
+    bool updateable = 7;
     // inputs for update
-    repeated IOType update_inputs = 7;
+    repeated IOType update_inputs = 8;
     // outputs for update
-    repeated IOType update_outputs = 8;
+    repeated IOType update_outputs = 9;
 }
 
 // holds the model weights and state
