@@ -20,15 +20,14 @@ using grpc::ServerBuilder;
 using grpc::ServerContext;
 
 using bigbrain::AIService;
+using bigbrain::AIResponse;
 using bigbrain::AICapabilityRequest;
-using bigbrain::AICapabilityResponse;
 
 //----------------------------------------------------------------
 
 // Logic and data behind the server's behavior.
 class AIServiceImpl final : public AIService::Service {
     public:
-        
         AIServiceImpl(
             const std::string db_path, 
             leveldb::Options db_options);
@@ -39,7 +38,7 @@ class AIServiceImpl final : public AIService::Service {
         Status ReportCapabilities(
             ServerContext* context, 
             const AICapabilityRequest* request,
-            AICapabilityResponse* reply) override;
+            AIResponse* response) override;
 
         std::unique_ptr<leveldb::DB> m_db = nullptr;
 

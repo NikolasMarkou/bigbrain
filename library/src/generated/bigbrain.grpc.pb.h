@@ -46,43 +46,67 @@ class AIService final {
   class StubInterface {
    public:
     virtual ~StubInterface() {}
-    virtual ::grpc::Status ReportCapabilities(::grpc::ClientContext* context, const ::bigbrain::AICapabilityRequest& request, ::bigbrain::AICapabilityResponse* response) = 0;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::bigbrain::AICapabilityResponse>> AsyncReportCapabilities(::grpc::ClientContext* context, const ::bigbrain::AICapabilityRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::bigbrain::AICapabilityResponse>>(AsyncReportCapabilitiesRaw(context, request, cq));
+    virtual ::grpc::Status ReportCapabilities(::grpc::ClientContext* context, const ::bigbrain::AICapabilityRequest& request, ::bigbrain::AIResponse* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::bigbrain::AIResponse>> AsyncReportCapabilities(::grpc::ClientContext* context, const ::bigbrain::AICapabilityRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::bigbrain::AIResponse>>(AsyncReportCapabilitiesRaw(context, request, cq));
     }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::bigbrain::AICapabilityResponse>> PrepareAsyncReportCapabilities(::grpc::ClientContext* context, const ::bigbrain::AICapabilityRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::bigbrain::AICapabilityResponse>>(PrepareAsyncReportCapabilitiesRaw(context, request, cq));
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::bigbrain::AIResponse>> PrepareAsyncReportCapabilities(::grpc::ClientContext* context, const ::bigbrain::AICapabilityRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::bigbrain::AIResponse>>(PrepareAsyncReportCapabilitiesRaw(context, request, cq));
+    }
+    virtual ::grpc::Status RegisterCapability(::grpc::ClientContext* context, const ::bigbrain::AICapability& request, ::bigbrain::AIResponse* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::bigbrain::AIResponse>> AsyncRegisterCapability(::grpc::ClientContext* context, const ::bigbrain::AICapability& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::bigbrain::AIResponse>>(AsyncRegisterCapabilityRaw(context, request, cq));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::bigbrain::AIResponse>> PrepareAsyncRegisterCapability(::grpc::ClientContext* context, const ::bigbrain::AICapability& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::bigbrain::AIResponse>>(PrepareAsyncRegisterCapabilityRaw(context, request, cq));
     }
     class experimental_async_interface {
      public:
       virtual ~experimental_async_interface() {}
-      virtual void ReportCapabilities(::grpc::ClientContext* context, const ::bigbrain::AICapabilityRequest* request, ::bigbrain::AICapabilityResponse* response, std::function<void(::grpc::Status)>) = 0;
-      virtual void ReportCapabilities(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::bigbrain::AICapabilityResponse* response, std::function<void(::grpc::Status)>) = 0;
-      virtual void ReportCapabilities(::grpc::ClientContext* context, const ::bigbrain::AICapabilityRequest* request, ::bigbrain::AICapabilityResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
-      virtual void ReportCapabilities(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::bigbrain::AICapabilityResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
+      virtual void ReportCapabilities(::grpc::ClientContext* context, const ::bigbrain::AICapabilityRequest* request, ::bigbrain::AIResponse* response, std::function<void(::grpc::Status)>) = 0;
+      virtual void ReportCapabilities(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::bigbrain::AIResponse* response, std::function<void(::grpc::Status)>) = 0;
+      virtual void ReportCapabilities(::grpc::ClientContext* context, const ::bigbrain::AICapabilityRequest* request, ::bigbrain::AIResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
+      virtual void ReportCapabilities(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::bigbrain::AIResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
+      virtual void RegisterCapability(::grpc::ClientContext* context, const ::bigbrain::AICapability* request, ::bigbrain::AIResponse* response, std::function<void(::grpc::Status)>) = 0;
+      virtual void RegisterCapability(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::bigbrain::AIResponse* response, std::function<void(::grpc::Status)>) = 0;
+      virtual void RegisterCapability(::grpc::ClientContext* context, const ::bigbrain::AICapability* request, ::bigbrain::AIResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
+      virtual void RegisterCapability(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::bigbrain::AIResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
     };
     virtual class experimental_async_interface* experimental_async() { return nullptr; }
   private:
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::bigbrain::AICapabilityResponse>* AsyncReportCapabilitiesRaw(::grpc::ClientContext* context, const ::bigbrain::AICapabilityRequest& request, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::bigbrain::AICapabilityResponse>* PrepareAsyncReportCapabilitiesRaw(::grpc::ClientContext* context, const ::bigbrain::AICapabilityRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::bigbrain::AIResponse>* AsyncReportCapabilitiesRaw(::grpc::ClientContext* context, const ::bigbrain::AICapabilityRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::bigbrain::AIResponse>* PrepareAsyncReportCapabilitiesRaw(::grpc::ClientContext* context, const ::bigbrain::AICapabilityRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::bigbrain::AIResponse>* AsyncRegisterCapabilityRaw(::grpc::ClientContext* context, const ::bigbrain::AICapability& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::bigbrain::AIResponse>* PrepareAsyncRegisterCapabilityRaw(::grpc::ClientContext* context, const ::bigbrain::AICapability& request, ::grpc::CompletionQueue* cq) = 0;
   };
   class Stub final : public StubInterface {
    public:
     Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel);
-    ::grpc::Status ReportCapabilities(::grpc::ClientContext* context, const ::bigbrain::AICapabilityRequest& request, ::bigbrain::AICapabilityResponse* response) override;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::bigbrain::AICapabilityResponse>> AsyncReportCapabilities(::grpc::ClientContext* context, const ::bigbrain::AICapabilityRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::bigbrain::AICapabilityResponse>>(AsyncReportCapabilitiesRaw(context, request, cq));
+    ::grpc::Status ReportCapabilities(::grpc::ClientContext* context, const ::bigbrain::AICapabilityRequest& request, ::bigbrain::AIResponse* response) override;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::bigbrain::AIResponse>> AsyncReportCapabilities(::grpc::ClientContext* context, const ::bigbrain::AICapabilityRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::bigbrain::AIResponse>>(AsyncReportCapabilitiesRaw(context, request, cq));
     }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::bigbrain::AICapabilityResponse>> PrepareAsyncReportCapabilities(::grpc::ClientContext* context, const ::bigbrain::AICapabilityRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::bigbrain::AICapabilityResponse>>(PrepareAsyncReportCapabilitiesRaw(context, request, cq));
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::bigbrain::AIResponse>> PrepareAsyncReportCapabilities(::grpc::ClientContext* context, const ::bigbrain::AICapabilityRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::bigbrain::AIResponse>>(PrepareAsyncReportCapabilitiesRaw(context, request, cq));
+    }
+    ::grpc::Status RegisterCapability(::grpc::ClientContext* context, const ::bigbrain::AICapability& request, ::bigbrain::AIResponse* response) override;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::bigbrain::AIResponse>> AsyncRegisterCapability(::grpc::ClientContext* context, const ::bigbrain::AICapability& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::bigbrain::AIResponse>>(AsyncRegisterCapabilityRaw(context, request, cq));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::bigbrain::AIResponse>> PrepareAsyncRegisterCapability(::grpc::ClientContext* context, const ::bigbrain::AICapability& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::bigbrain::AIResponse>>(PrepareAsyncRegisterCapabilityRaw(context, request, cq));
     }
     class experimental_async final :
       public StubInterface::experimental_async_interface {
      public:
-      void ReportCapabilities(::grpc::ClientContext* context, const ::bigbrain::AICapabilityRequest* request, ::bigbrain::AICapabilityResponse* response, std::function<void(::grpc::Status)>) override;
-      void ReportCapabilities(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::bigbrain::AICapabilityResponse* response, std::function<void(::grpc::Status)>) override;
-      void ReportCapabilities(::grpc::ClientContext* context, const ::bigbrain::AICapabilityRequest* request, ::bigbrain::AICapabilityResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
-      void ReportCapabilities(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::bigbrain::AICapabilityResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
+      void ReportCapabilities(::grpc::ClientContext* context, const ::bigbrain::AICapabilityRequest* request, ::bigbrain::AIResponse* response, std::function<void(::grpc::Status)>) override;
+      void ReportCapabilities(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::bigbrain::AIResponse* response, std::function<void(::grpc::Status)>) override;
+      void ReportCapabilities(::grpc::ClientContext* context, const ::bigbrain::AICapabilityRequest* request, ::bigbrain::AIResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
+      void ReportCapabilities(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::bigbrain::AIResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
+      void RegisterCapability(::grpc::ClientContext* context, const ::bigbrain::AICapability* request, ::bigbrain::AIResponse* response, std::function<void(::grpc::Status)>) override;
+      void RegisterCapability(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::bigbrain::AIResponse* response, std::function<void(::grpc::Status)>) override;
+      void RegisterCapability(::grpc::ClientContext* context, const ::bigbrain::AICapability* request, ::bigbrain::AIResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
+      void RegisterCapability(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::bigbrain::AIResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
      private:
       friend class Stub;
       explicit experimental_async(Stub* stub): stub_(stub) { }
@@ -94,9 +118,12 @@ class AIService final {
    private:
     std::shared_ptr< ::grpc::ChannelInterface> channel_;
     class experimental_async async_stub_{this};
-    ::grpc::ClientAsyncResponseReader< ::bigbrain::AICapabilityResponse>* AsyncReportCapabilitiesRaw(::grpc::ClientContext* context, const ::bigbrain::AICapabilityRequest& request, ::grpc::CompletionQueue* cq) override;
-    ::grpc::ClientAsyncResponseReader< ::bigbrain::AICapabilityResponse>* PrepareAsyncReportCapabilitiesRaw(::grpc::ClientContext* context, const ::bigbrain::AICapabilityRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::bigbrain::AIResponse>* AsyncReportCapabilitiesRaw(::grpc::ClientContext* context, const ::bigbrain::AICapabilityRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::bigbrain::AIResponse>* PrepareAsyncReportCapabilitiesRaw(::grpc::ClientContext* context, const ::bigbrain::AICapabilityRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::bigbrain::AIResponse>* AsyncRegisterCapabilityRaw(::grpc::ClientContext* context, const ::bigbrain::AICapability& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::bigbrain::AIResponse>* PrepareAsyncRegisterCapabilityRaw(::grpc::ClientContext* context, const ::bigbrain::AICapability& request, ::grpc::CompletionQueue* cq) override;
     const ::grpc::internal::RpcMethod rpcmethod_ReportCapabilities_;
+    const ::grpc::internal::RpcMethod rpcmethod_RegisterCapability_;
   };
   static std::unique_ptr<Stub> NewStub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options = ::grpc::StubOptions());
 
@@ -104,7 +131,8 @@ class AIService final {
    public:
     Service();
     virtual ~Service();
-    virtual ::grpc::Status ReportCapabilities(::grpc::ServerContext* context, const ::bigbrain::AICapabilityRequest* request, ::bigbrain::AICapabilityResponse* response);
+    virtual ::grpc::Status ReportCapabilities(::grpc::ServerContext* context, const ::bigbrain::AICapabilityRequest* request, ::bigbrain::AIResponse* response);
+    virtual ::grpc::Status RegisterCapability(::grpc::ServerContext* context, const ::bigbrain::AICapability* request, ::bigbrain::AIResponse* response);
   };
   template <class BaseClass>
   class WithAsyncMethod_ReportCapabilities : public BaseClass {
@@ -118,15 +146,35 @@ class AIService final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status ReportCapabilities(::grpc::ServerContext* /*context*/, const ::bigbrain::AICapabilityRequest* /*request*/, ::bigbrain::AICapabilityResponse* /*response*/) override {
+    ::grpc::Status ReportCapabilities(::grpc::ServerContext* /*context*/, const ::bigbrain::AICapabilityRequest* /*request*/, ::bigbrain::AIResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    void RequestReportCapabilities(::grpc::ServerContext* context, ::bigbrain::AICapabilityRequest* request, ::grpc::ServerAsyncResponseWriter< ::bigbrain::AICapabilityResponse>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+    void RequestReportCapabilities(::grpc::ServerContext* context, ::bigbrain::AICapabilityRequest* request, ::grpc::ServerAsyncResponseWriter< ::bigbrain::AIResponse>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
       ::grpc::Service::RequestAsyncUnary(0, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
-  typedef WithAsyncMethod_ReportCapabilities<Service > AsyncService;
+  template <class BaseClass>
+  class WithAsyncMethod_RegisterCapability : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithAsyncMethod_RegisterCapability() {
+      ::grpc::Service::MarkMethodAsync(1);
+    }
+    ~WithAsyncMethod_RegisterCapability() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status RegisterCapability(::grpc::ServerContext* /*context*/, const ::bigbrain::AICapability* /*request*/, ::bigbrain::AIResponse* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestRegisterCapability(::grpc::ServerContext* context, ::bigbrain::AICapability* request, ::grpc::ServerAsyncResponseWriter< ::bigbrain::AIResponse>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(1, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  typedef WithAsyncMethod_ReportCapabilities<WithAsyncMethod_RegisterCapability<Service > > AsyncService;
   template <class BaseClass>
   class ExperimentalWithCallbackMethod_ReportCapabilities : public BaseClass {
    private:
@@ -134,17 +182,17 @@ class AIService final {
    public:
     ExperimentalWithCallbackMethod_ReportCapabilities() {
       ::grpc::Service::experimental().MarkMethodCallback(0,
-        new ::grpc_impl::internal::CallbackUnaryHandler< ::bigbrain::AICapabilityRequest, ::bigbrain::AICapabilityResponse>(
+        new ::grpc_impl::internal::CallbackUnaryHandler< ::bigbrain::AICapabilityRequest, ::bigbrain::AIResponse>(
           [this](::grpc::ServerContext* context,
                  const ::bigbrain::AICapabilityRequest* request,
-                 ::bigbrain::AICapabilityResponse* response,
+                 ::bigbrain::AIResponse* response,
                  ::grpc::experimental::ServerCallbackRpcController* controller) {
                    return this->ReportCapabilities(context, request, response, controller);
                  }));
     }
     void SetMessageAllocatorFor_ReportCapabilities(
-        ::grpc::experimental::MessageAllocator< ::bigbrain::AICapabilityRequest, ::bigbrain::AICapabilityResponse>* allocator) {
-      static_cast<::grpc_impl::internal::CallbackUnaryHandler< ::bigbrain::AICapabilityRequest, ::bigbrain::AICapabilityResponse>*>(
+        ::grpc::experimental::MessageAllocator< ::bigbrain::AICapabilityRequest, ::bigbrain::AIResponse>* allocator) {
+      static_cast<::grpc_impl::internal::CallbackUnaryHandler< ::bigbrain::AICapabilityRequest, ::bigbrain::AIResponse>*>(
           ::grpc::Service::experimental().GetHandler(0))
               ->SetMessageAllocator(allocator);
     }
@@ -152,13 +200,44 @@ class AIService final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status ReportCapabilities(::grpc::ServerContext* /*context*/, const ::bigbrain::AICapabilityRequest* /*request*/, ::bigbrain::AICapabilityResponse* /*response*/) override {
+    ::grpc::Status ReportCapabilities(::grpc::ServerContext* /*context*/, const ::bigbrain::AICapabilityRequest* /*request*/, ::bigbrain::AIResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    virtual void ReportCapabilities(::grpc::ServerContext* /*context*/, const ::bigbrain::AICapabilityRequest* /*request*/, ::bigbrain::AICapabilityResponse* /*response*/, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
+    virtual void ReportCapabilities(::grpc::ServerContext* /*context*/, const ::bigbrain::AICapabilityRequest* /*request*/, ::bigbrain::AIResponse* /*response*/, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
   };
-  typedef ExperimentalWithCallbackMethod_ReportCapabilities<Service > ExperimentalCallbackService;
+  template <class BaseClass>
+  class ExperimentalWithCallbackMethod_RegisterCapability : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    ExperimentalWithCallbackMethod_RegisterCapability() {
+      ::grpc::Service::experimental().MarkMethodCallback(1,
+        new ::grpc_impl::internal::CallbackUnaryHandler< ::bigbrain::AICapability, ::bigbrain::AIResponse>(
+          [this](::grpc::ServerContext* context,
+                 const ::bigbrain::AICapability* request,
+                 ::bigbrain::AIResponse* response,
+                 ::grpc::experimental::ServerCallbackRpcController* controller) {
+                   return this->RegisterCapability(context, request, response, controller);
+                 }));
+    }
+    void SetMessageAllocatorFor_RegisterCapability(
+        ::grpc::experimental::MessageAllocator< ::bigbrain::AICapability, ::bigbrain::AIResponse>* allocator) {
+      static_cast<::grpc_impl::internal::CallbackUnaryHandler< ::bigbrain::AICapability, ::bigbrain::AIResponse>*>(
+          ::grpc::Service::experimental().GetHandler(1))
+              ->SetMessageAllocator(allocator);
+    }
+    ~ExperimentalWithCallbackMethod_RegisterCapability() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status RegisterCapability(::grpc::ServerContext* /*context*/, const ::bigbrain::AICapability* /*request*/, ::bigbrain::AIResponse* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    virtual void RegisterCapability(::grpc::ServerContext* /*context*/, const ::bigbrain::AICapability* /*request*/, ::bigbrain::AIResponse* /*response*/, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
+  };
+  typedef ExperimentalWithCallbackMethod_ReportCapabilities<ExperimentalWithCallbackMethod_RegisterCapability<Service > > ExperimentalCallbackService;
   template <class BaseClass>
   class WithGenericMethod_ReportCapabilities : public BaseClass {
    private:
@@ -171,7 +250,24 @@ class AIService final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status ReportCapabilities(::grpc::ServerContext* /*context*/, const ::bigbrain::AICapabilityRequest* /*request*/, ::bigbrain::AICapabilityResponse* /*response*/) override {
+    ::grpc::Status ReportCapabilities(::grpc::ServerContext* /*context*/, const ::bigbrain::AICapabilityRequest* /*request*/, ::bigbrain::AIResponse* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+  };
+  template <class BaseClass>
+  class WithGenericMethod_RegisterCapability : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithGenericMethod_RegisterCapability() {
+      ::grpc::Service::MarkMethodGeneric(1);
+    }
+    ~WithGenericMethod_RegisterCapability() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status RegisterCapability(::grpc::ServerContext* /*context*/, const ::bigbrain::AICapability* /*request*/, ::bigbrain::AIResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -188,12 +284,32 @@ class AIService final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status ReportCapabilities(::grpc::ServerContext* /*context*/, const ::bigbrain::AICapabilityRequest* /*request*/, ::bigbrain::AICapabilityResponse* /*response*/) override {
+    ::grpc::Status ReportCapabilities(::grpc::ServerContext* /*context*/, const ::bigbrain::AICapabilityRequest* /*request*/, ::bigbrain::AIResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestReportCapabilities(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
       ::grpc::Service::RequestAsyncUnary(0, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  template <class BaseClass>
+  class WithRawMethod_RegisterCapability : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithRawMethod_RegisterCapability() {
+      ::grpc::Service::MarkMethodRaw(1);
+    }
+    ~WithRawMethod_RegisterCapability() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status RegisterCapability(::grpc::ServerContext* /*context*/, const ::bigbrain::AICapability* /*request*/, ::bigbrain::AIResponse* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestRegisterCapability(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(1, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -215,11 +331,36 @@ class AIService final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status ReportCapabilities(::grpc::ServerContext* /*context*/, const ::bigbrain::AICapabilityRequest* /*request*/, ::bigbrain::AICapabilityResponse* /*response*/) override {
+    ::grpc::Status ReportCapabilities(::grpc::ServerContext* /*context*/, const ::bigbrain::AICapabilityRequest* /*request*/, ::bigbrain::AIResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     virtual void ReportCapabilities(::grpc::ServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
+  };
+  template <class BaseClass>
+  class ExperimentalWithRawCallbackMethod_RegisterCapability : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    ExperimentalWithRawCallbackMethod_RegisterCapability() {
+      ::grpc::Service::experimental().MarkMethodRawCallback(1,
+        new ::grpc_impl::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
+          [this](::grpc::ServerContext* context,
+                 const ::grpc::ByteBuffer* request,
+                 ::grpc::ByteBuffer* response,
+                 ::grpc::experimental::ServerCallbackRpcController* controller) {
+                   this->RegisterCapability(context, request, response, controller);
+                 }));
+    }
+    ~ExperimentalWithRawCallbackMethod_RegisterCapability() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status RegisterCapability(::grpc::ServerContext* /*context*/, const ::bigbrain::AICapability* /*request*/, ::bigbrain::AIResponse* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    virtual void RegisterCapability(::grpc::ServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
   };
   template <class BaseClass>
   class WithStreamedUnaryMethod_ReportCapabilities : public BaseClass {
@@ -228,22 +369,42 @@ class AIService final {
    public:
     WithStreamedUnaryMethod_ReportCapabilities() {
       ::grpc::Service::MarkMethodStreamed(0,
-        new ::grpc::internal::StreamedUnaryHandler< ::bigbrain::AICapabilityRequest, ::bigbrain::AICapabilityResponse>(std::bind(&WithStreamedUnaryMethod_ReportCapabilities<BaseClass>::StreamedReportCapabilities, this, std::placeholders::_1, std::placeholders::_2)));
+        new ::grpc::internal::StreamedUnaryHandler< ::bigbrain::AICapabilityRequest, ::bigbrain::AIResponse>(std::bind(&WithStreamedUnaryMethod_ReportCapabilities<BaseClass>::StreamedReportCapabilities, this, std::placeholders::_1, std::placeholders::_2)));
     }
     ~WithStreamedUnaryMethod_ReportCapabilities() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable regular version of this method
-    ::grpc::Status ReportCapabilities(::grpc::ServerContext* /*context*/, const ::bigbrain::AICapabilityRequest* /*request*/, ::bigbrain::AICapabilityResponse* /*response*/) override {
+    ::grpc::Status ReportCapabilities(::grpc::ServerContext* /*context*/, const ::bigbrain::AICapabilityRequest* /*request*/, ::bigbrain::AIResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     // replace default version of method with streamed unary
-    virtual ::grpc::Status StreamedReportCapabilities(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::bigbrain::AICapabilityRequest,::bigbrain::AICapabilityResponse>* server_unary_streamer) = 0;
+    virtual ::grpc::Status StreamedReportCapabilities(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::bigbrain::AICapabilityRequest,::bigbrain::AIResponse>* server_unary_streamer) = 0;
   };
-  typedef WithStreamedUnaryMethod_ReportCapabilities<Service > StreamedUnaryService;
+  template <class BaseClass>
+  class WithStreamedUnaryMethod_RegisterCapability : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithStreamedUnaryMethod_RegisterCapability() {
+      ::grpc::Service::MarkMethodStreamed(1,
+        new ::grpc::internal::StreamedUnaryHandler< ::bigbrain::AICapability, ::bigbrain::AIResponse>(std::bind(&WithStreamedUnaryMethod_RegisterCapability<BaseClass>::StreamedRegisterCapability, this, std::placeholders::_1, std::placeholders::_2)));
+    }
+    ~WithStreamedUnaryMethod_RegisterCapability() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable regular version of this method
+    ::grpc::Status RegisterCapability(::grpc::ServerContext* /*context*/, const ::bigbrain::AICapability* /*request*/, ::bigbrain::AIResponse* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    // replace default version of method with streamed unary
+    virtual ::grpc::Status StreamedRegisterCapability(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::bigbrain::AICapability,::bigbrain::AIResponse>* server_unary_streamer) = 0;
+  };
+  typedef WithStreamedUnaryMethod_ReportCapabilities<WithStreamedUnaryMethod_RegisterCapability<Service > > StreamedUnaryService;
   typedef Service SplitStreamedService;
-  typedef WithStreamedUnaryMethod_ReportCapabilities<Service > StreamedService;
+  typedef WithStreamedUnaryMethod_ReportCapabilities<WithStreamedUnaryMethod_RegisterCapability<Service > > StreamedService;
 };
 
 }  // namespace bigbrain

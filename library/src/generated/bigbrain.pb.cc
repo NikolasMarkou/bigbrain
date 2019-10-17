@@ -15,10 +15,12 @@
 #include <google/protobuf/wire_format.h>
 // @@protoc_insertion_point(includes)
 #include <google/protobuf/port_def.inc>
+extern PROTOBUF_INTERNAL_EXPORT_bigbrain_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<2> scc_info_AICapability_bigbrain_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_bigbrain_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_AIModelContainer_bigbrain_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_bigbrain_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_AIModelFramework_bigbrain_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_bigbrain_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_AIModelIO_bigbrain_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_bigbrain_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<2> scc_info_AIModelInformation_bigbrain_2eproto;
+extern PROTOBUF_INTERNAL_EXPORT_bigbrain_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_AIModelsInformation_bigbrain_2eproto;
 namespace bigbrain {
 class AIModelIODefaultTypeInternal {
  public:
@@ -44,10 +46,16 @@ class AICapabilityRequestDefaultTypeInternal {
  public:
   ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<AICapabilityRequest> _instance;
 } _AICapabilityRequest_default_instance_;
-class AICapabilityResponseDefaultTypeInternal {
+class AIModelsInformationDefaultTypeInternal {
  public:
-  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<AICapabilityResponse> _instance;
-} _AICapabilityResponse_default_instance_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<AIModelsInformation> _instance;
+} _AIModelsInformation_default_instance_;
+class AIResponseDefaultTypeInternal {
+ public:
+  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<AIResponse> _instance;
+  const ::bigbrain::AICapability* model_;
+  const ::bigbrain::AIModelsInformation* models_information_;
+} _AIResponse_default_instance_;
 }  // namespace bigbrain
 static void InitDefaultsscc_info_AICapability_bigbrain_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
@@ -78,21 +86,6 @@ static void InitDefaultsscc_info_AICapabilityRequest_bigbrain_2eproto() {
 
 ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_AICapabilityRequest_bigbrain_2eproto =
     {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, InitDefaultsscc_info_AICapabilityRequest_bigbrain_2eproto}, {}};
-
-static void InitDefaultsscc_info_AICapabilityResponse_bigbrain_2eproto() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
-
-  {
-    void* ptr = &::bigbrain::_AICapabilityResponse_default_instance_;
-    new (ptr) ::bigbrain::AICapabilityResponse();
-    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
-  }
-  ::bigbrain::AICapabilityResponse::InitAsDefaultInstance();
-}
-
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_AICapabilityResponse_bigbrain_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 1, InitDefaultsscc_info_AICapabilityResponse_bigbrain_2eproto}, {
-      &scc_info_AIModelInformation_bigbrain_2eproto.base,}};
 
 static void InitDefaultsscc_info_AIModelContainer_bigbrain_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
@@ -152,7 +145,38 @@ static void InitDefaultsscc_info_AIModelInformation_bigbrain_2eproto() {
       &scc_info_AIModelFramework_bigbrain_2eproto.base,
       &scc_info_AIModelIO_bigbrain_2eproto.base,}};
 
-static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_bigbrain_2eproto[7];
+static void InitDefaultsscc_info_AIModelsInformation_bigbrain_2eproto() {
+  GOOGLE_PROTOBUF_VERIFY_VERSION;
+
+  {
+    void* ptr = &::bigbrain::_AIModelsInformation_default_instance_;
+    new (ptr) ::bigbrain::AIModelsInformation();
+    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
+  }
+  ::bigbrain::AIModelsInformation::InitAsDefaultInstance();
+}
+
+::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_AIModelsInformation_bigbrain_2eproto =
+    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 1, InitDefaultsscc_info_AIModelsInformation_bigbrain_2eproto}, {
+      &scc_info_AIModelInformation_bigbrain_2eproto.base,}};
+
+static void InitDefaultsscc_info_AIResponse_bigbrain_2eproto() {
+  GOOGLE_PROTOBUF_VERIFY_VERSION;
+
+  {
+    void* ptr = &::bigbrain::_AIResponse_default_instance_;
+    new (ptr) ::bigbrain::AIResponse();
+    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
+  }
+  ::bigbrain::AIResponse::InitAsDefaultInstance();
+}
+
+::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<2> scc_info_AIResponse_bigbrain_2eproto =
+    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 2, InitDefaultsscc_info_AIResponse_bigbrain_2eproto}, {
+      &scc_info_AICapability_bigbrain_2eproto.base,
+      &scc_info_AIModelsInformation_bigbrain_2eproto.base,}};
+
+static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_bigbrain_2eproto[8];
 static const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* file_level_enum_descriptors_bigbrain_2eproto[2];
 static constexpr ::PROTOBUF_NAMESPACE_ID::ServiceDescriptor const** file_level_service_descriptors_bigbrain_2eproto = nullptr;
 
@@ -210,11 +234,21 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_bigbrain_2eproto::offsets[] PR
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   ~0u,  // no _has_bits_
-  PROTOBUF_FIELD_OFFSET(::bigbrain::AICapabilityResponse, _internal_metadata_),
+  PROTOBUF_FIELD_OFFSET(::bigbrain::AIModelsInformation, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
-  PROTOBUF_FIELD_OFFSET(::bigbrain::AICapabilityResponse, models_information_),
+  PROTOBUF_FIELD_OFFSET(::bigbrain::AIModelsInformation, model_information_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::bigbrain::AIResponse, _internal_metadata_),
+  ~0u,  // no _extensions_
+  PROTOBUF_FIELD_OFFSET(::bigbrain::AIResponse, _oneof_case_[0]),
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::bigbrain::AIResponse, success_),
+  PROTOBUF_FIELD_OFFSET(::bigbrain::AIResponse, error_),
+  offsetof(::bigbrain::AIResponseDefaultTypeInternal, model_),
+  offsetof(::bigbrain::AIResponseDefaultTypeInternal, models_information_),
+  PROTOBUF_FIELD_OFFSET(::bigbrain::AIResponse, result_),
 };
 static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, -1, sizeof(::bigbrain::AIModelIO)},
@@ -223,7 +257,8 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOB
   { 21, -1, sizeof(::bigbrain::AIModelInformation)},
   { 35, -1, sizeof(::bigbrain::AIModelContainer)},
   { 47, -1, sizeof(::bigbrain::AICapabilityRequest)},
-  { 52, -1, sizeof(::bigbrain::AICapabilityResponse)},
+  { 52, -1, sizeof(::bigbrain::AIModelsInformation)},
+  { 58, -1, sizeof(::bigbrain::AIResponse)},
 };
 
 static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
@@ -233,68 +268,75 @@ static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] =
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::bigbrain::_AIModelInformation_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::bigbrain::_AIModelContainer_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::bigbrain::_AICapabilityRequest_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::bigbrain::_AICapabilityResponse_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::bigbrain::_AIModelsInformation_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::bigbrain::_AIResponse_default_instance_),
 };
 
 const char descriptor_table_protodef_bigbrain_2eproto[] =
-  "\n\016bigbrain.proto\022\010bigbrain\"9\n\tAIModelIO\022"
-  "\036\n\004type\030\001 \001(\0162\020.bigbrain.IOType\022\014\n\004name\030"
-  "\002 \001(\t\"P\n\020AIModelFramework\022+\n\tframework\030\001"
-  " \001(\0162\030.bigbrain.ModelFramework\022\017\n\007versio"
-  "n\030\002 \001(\t\"p\n\014AICapability\0221\n\013information\030\001"
-  " \001(\0132\034.bigbrain.AIModelInformation\022-\n\tco"
-  "ntainer\030\002 \001(\0132\032.bigbrain.AIModelContaine"
-  "r\"\254\002\n\022AIModelInformation\022\014\n\004name\030\001 \001(\t\022\023"
-  "\n\013description\030\002 \001(\t\022\014\n\004path\030\003 \001(\t\022-\n\tfra"
-  "mework\030\004 \001(\0132\032.bigbrain.AIModelFramework"
-  "\022#\n\006inputs\030\005 \003(\0132\023.bigbrain.AIModelIO\022$\n"
-  "\007outputs\030\006 \003(\0132\023.bigbrain.AIModelIO\022\022\n\nu"
-  "pdateable\030\007 \001(\010\022*\n\rupdate_inputs\030\010 \003(\0132\023"
-  ".bigbrain.AIModelIO\022+\n\016update_outputs\030\t "
-  "\003(\0132\023.bigbrain.AIModelIO\"\210\001\n\020AIModelCont"
-  "ainer\022\014\n\004hash\030\001 \001(\t\022\022\n\nhash_model\030\002 \001(\t\022"
-  "\022\n\nhash_state\030\003 \001(\t\022\021\n\ttimestamp\030\004 \001(\t\022\r"
-  "\n\005model\030\005 \001(\014\022\r\n\005state\030\006 \001(\014\022\r\n\005other\030\007 "
-  "\001(\014\"\025\n\023AICapabilityRequest\"P\n\024AICapabili"
-  "tyResponse\0228\n\022models_information\030\001 \003(\0132\034"
-  ".bigbrain.AIModelInformation*x\n\006IOType\022\014"
-  "\n\010IO_OTHER\020\000\022\014\n\010IO_IMAGE\020\001\022\013\n\007IO_TEXT\020\002\022"
-  "\014\n\010IO_AUDIO\020\003\022\014\n\010IO_GRAPH\020\004\022\r\n\tIO_VECTOR"
-  "\020\005\022\r\n\tIO_MATRIX\020\006\022\013\n\007IO_BBOX\020\007*V\n\016ModelF"
-  "ramework\022\030\n\024FRAMEWORK_TENSORFLOW\020\000\022\025\n\021FR"
-  "AMEWORK_PYTORCH\020\001\022\023\n\017FRAMEWORK_OTHER\020\0022b"
-  "\n\tAIService\022U\n\022ReportCapabilities\022\035.bigb"
-  "rain.AICapabilityRequest\032\036.bigbrain.AICa"
-  "pabilityResponse\"\000b\006proto3"
+  "\n\016bigbrain.proto\022\010bigbrain\"\245\001\n\tAIModelIO"
+  "\022(\n\004type\030\001 \001(\0162\032.bigbrain.AIModelIO.IOTy"
+  "pe\022\014\n\004name\030\002 \001(\t\"`\n\006IOType\022\t\n\005OTHER\020\000\022\t\n"
+  "\005IMAGE\020\001\022\010\n\004TEXT\020\002\022\t\n\005AUDIO\020\003\022\t\n\005GRAPH\020\004"
+  "\022\n\n\006VECTOR\020\005\022\n\n\006MATRIX\020\006\022\010\n\004BBOX\020\007\"\233\001\n\020A"
+  "IModelFramework\022<\n\tframework\030\001 \001(\0162).big"
+  "brain.AIModelFramework.ModelFramework\022\017\n"
+  "\007version\030\002 \001(\t\"8\n\016ModelFramework\022\t\n\005OTHE"
+  "R\020\000\022\016\n\nTENSORFLOW\020\001\022\013\n\007PYTORCH\020\002\"p\n\014AICa"
+  "pability\0221\n\013information\030\001 \001(\0132\034.bigbrain"
+  ".AIModelInformation\022-\n\tcontainer\030\002 \001(\0132\032"
+  ".bigbrain.AIModelContainer\"\254\002\n\022AIModelIn"
+  "formation\022\014\n\004name\030\001 \001(\t\022\023\n\013description\030\002"
+  " \001(\t\022\014\n\004path\030\003 \001(\t\022-\n\tframework\030\004 \001(\0132\032."
+  "bigbrain.AIModelFramework\022#\n\006inputs\030\005 \003("
+  "\0132\023.bigbrain.AIModelIO\022$\n\007outputs\030\006 \003(\0132"
+  "\023.bigbrain.AIModelIO\022\022\n\nupdateable\030\007 \001(\010"
+  "\022*\n\rupdate_inputs\030\010 \003(\0132\023.bigbrain.AIMod"
+  "elIO\022+\n\016update_outputs\030\t \003(\0132\023.bigbrain."
+  "AIModelIO\"\210\001\n\020AIModelContainer\022\014\n\004hash\030\001"
+  " \001(\t\022\022\n\nhash_model\030\002 \001(\t\022\022\n\nhash_state\030\003"
+  " \001(\t\022\021\n\ttimestamp\030\004 \001(\t\022\r\n\005model\030\005 \001(\014\022\r"
+  "\n\005state\030\006 \001(\014\022\r\n\005other\030\007 \001(\014\"\025\n\023AICapabi"
+  "lityRequest\"N\n\023AIModelsInformation\0227\n\021mo"
+  "del_information\030\001 \003(\0132\034.bigbrain.AIModel"
+  "Information\"\234\001\n\nAIResponse\022\017\n\007success\030\001 "
+  "\001(\010\022\r\n\005error\030\002 \001(\t\022\'\n\005model\030\003 \001(\0132\026.bigb"
+  "rain.AICapabilityH\000\022;\n\022models_informatio"
+  "n\030\004 \001(\0132\035.bigbrain.AIModelsInformationH\000"
+  "B\010\n\006result2\236\001\n\tAIService\022K\n\022ReportCapabi"
+  "lities\022\035.bigbrain.AICapabilityRequest\032\024."
+  "bigbrain.AIResponse\"\000\022D\n\022RegisterCapabil"
+  "ity\022\026.bigbrain.AICapability\032\024.bigbrain.A"
+  "IResponse\"\000b\006proto3"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_bigbrain_2eproto_deps[1] = {
 };
-static ::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase*const descriptor_table_bigbrain_2eproto_sccs[7] = {
+static ::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase*const descriptor_table_bigbrain_2eproto_sccs[8] = {
   &scc_info_AICapability_bigbrain_2eproto.base,
   &scc_info_AICapabilityRequest_bigbrain_2eproto.base,
-  &scc_info_AICapabilityResponse_bigbrain_2eproto.base,
   &scc_info_AIModelContainer_bigbrain_2eproto.base,
   &scc_info_AIModelFramework_bigbrain_2eproto.base,
   &scc_info_AIModelIO_bigbrain_2eproto.base,
   &scc_info_AIModelInformation_bigbrain_2eproto.base,
+  &scc_info_AIModelsInformation_bigbrain_2eproto.base,
+  &scc_info_AIResponse_bigbrain_2eproto.base,
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_bigbrain_2eproto_once;
 static bool descriptor_table_bigbrain_2eproto_initialized = false;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_bigbrain_2eproto = {
-  &descriptor_table_bigbrain_2eproto_initialized, descriptor_table_protodef_bigbrain_2eproto, "bigbrain.proto", 1146,
-  &descriptor_table_bigbrain_2eproto_once, descriptor_table_bigbrain_2eproto_sccs, descriptor_table_bigbrain_2eproto_deps, 7, 0,
+  &descriptor_table_bigbrain_2eproto_initialized, descriptor_table_protodef_bigbrain_2eproto, "bigbrain.proto", 1339,
+  &descriptor_table_bigbrain_2eproto_once, descriptor_table_bigbrain_2eproto_sccs, descriptor_table_bigbrain_2eproto_deps, 8, 0,
   schemas, file_default_instances, TableStruct_bigbrain_2eproto::offsets,
-  file_level_metadata_bigbrain_2eproto, 7, file_level_enum_descriptors_bigbrain_2eproto, file_level_service_descriptors_bigbrain_2eproto,
+  file_level_metadata_bigbrain_2eproto, 8, file_level_enum_descriptors_bigbrain_2eproto, file_level_service_descriptors_bigbrain_2eproto,
 };
 
 // Force running AddDescriptors() at dynamic initialization time.
 static bool dynamic_init_dummy_bigbrain_2eproto = (  ::PROTOBUF_NAMESPACE_ID::internal::AddDescriptors(&descriptor_table_bigbrain_2eproto), true);
 namespace bigbrain {
-const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* IOType_descriptor() {
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* AIModelIO_IOType_descriptor() {
   ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_bigbrain_2eproto);
   return file_level_enum_descriptors_bigbrain_2eproto[0];
 }
-bool IOType_IsValid(int value) {
+bool AIModelIO_IOType_IsValid(int value) {
   switch (value) {
     case 0:
     case 1:
@@ -310,11 +352,24 @@ bool IOType_IsValid(int value) {
   }
 }
 
-const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* ModelFramework_descriptor() {
+#if (__cplusplus < 201703) && (!defined(_MSC_VER) || _MSC_VER >= 1900)
+constexpr AIModelIO_IOType AIModelIO::OTHER;
+constexpr AIModelIO_IOType AIModelIO::IMAGE;
+constexpr AIModelIO_IOType AIModelIO::TEXT;
+constexpr AIModelIO_IOType AIModelIO::AUDIO;
+constexpr AIModelIO_IOType AIModelIO::GRAPH;
+constexpr AIModelIO_IOType AIModelIO::VECTOR;
+constexpr AIModelIO_IOType AIModelIO::MATRIX;
+constexpr AIModelIO_IOType AIModelIO::BBOX;
+constexpr AIModelIO_IOType AIModelIO::IOType_MIN;
+constexpr AIModelIO_IOType AIModelIO::IOType_MAX;
+constexpr int AIModelIO::IOType_ARRAYSIZE;
+#endif  // (__cplusplus < 201703) && (!defined(_MSC_VER) || _MSC_VER >= 1900)
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* AIModelFramework_ModelFramework_descriptor() {
   ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_bigbrain_2eproto);
   return file_level_enum_descriptors_bigbrain_2eproto[1];
 }
-bool ModelFramework_IsValid(int value) {
+bool AIModelFramework_ModelFramework_IsValid(int value) {
   switch (value) {
     case 0:
     case 1:
@@ -325,6 +380,14 @@ bool ModelFramework_IsValid(int value) {
   }
 }
 
+#if (__cplusplus < 201703) && (!defined(_MSC_VER) || _MSC_VER >= 1900)
+constexpr AIModelFramework_ModelFramework AIModelFramework::OTHER;
+constexpr AIModelFramework_ModelFramework AIModelFramework::TENSORFLOW;
+constexpr AIModelFramework_ModelFramework AIModelFramework::PYTORCH;
+constexpr AIModelFramework_ModelFramework AIModelFramework::ModelFramework_MIN;
+constexpr AIModelFramework_ModelFramework AIModelFramework::ModelFramework_MAX;
+constexpr int AIModelFramework::ModelFramework_ARRAYSIZE;
+#endif  // (__cplusplus < 201703) && (!defined(_MSC_VER) || _MSC_VER >= 1900)
 
 // ===================================================================
 
@@ -399,12 +462,12 @@ const char* AIModelIO::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // .bigbrain.IOType type = 1;
+      // .bigbrain.AIModelIO.IOType type = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
           ::PROTOBUF_NAMESPACE_ID::uint64 val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint(&ptr);
           CHK_(ptr);
-          set_type(static_cast<::bigbrain::IOType>(val));
+          set_type(static_cast<::bigbrain::AIModelIO_IOType>(val));
         } else goto handle_unusual;
         continue;
       // string name = 2;
@@ -444,14 +507,14 @@ bool AIModelIO::MergePartialFromCodedStream(
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // .bigbrain.IOType type = 1;
+      // .bigbrain.AIModelIO.IOType type = 1;
       case 1: {
         if (static_cast< ::PROTOBUF_NAMESPACE_ID::uint8>(tag) == (8 & 0xFF)) {
           int value = 0;
           DO_((::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::ReadPrimitive<
                    int, ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_ENUM>(
                  input, &value)));
-          set_type(static_cast< ::bigbrain::IOType >(value));
+          set_type(static_cast< ::bigbrain::AIModelIO_IOType >(value));
         } else {
           goto handle_unusual;
         }
@@ -500,7 +563,7 @@ void AIModelIO::SerializeWithCachedSizes(
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // .bigbrain.IOType type = 1;
+  // .bigbrain.AIModelIO.IOType type = 1;
   if (this->type() != 0) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteEnum(
       1, this->type(), output);
@@ -529,7 +592,7 @@ void AIModelIO::SerializeWithCachedSizes(
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // .bigbrain.IOType type = 1;
+  // .bigbrain.AIModelIO.IOType type = 1;
   if (this->type() != 0) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteEnumToArray(
       1, this->type(), target);
@@ -574,7 +637,7 @@ size_t AIModelIO::ByteSizeLong() const {
         this->name());
   }
 
-  // .bigbrain.IOType type = 1;
+  // .bigbrain.AIModelIO.IOType type = 1;
   if (this->type() != 0) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->type());
@@ -724,12 +787,12 @@ const char* AIModelFramework::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPA
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // .bigbrain.ModelFramework framework = 1;
+      // .bigbrain.AIModelFramework.ModelFramework framework = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
           ::PROTOBUF_NAMESPACE_ID::uint64 val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint(&ptr);
           CHK_(ptr);
-          set_framework(static_cast<::bigbrain::ModelFramework>(val));
+          set_framework(static_cast<::bigbrain::AIModelFramework_ModelFramework>(val));
         } else goto handle_unusual;
         continue;
       // string version = 2;
@@ -769,14 +832,14 @@ bool AIModelFramework::MergePartialFromCodedStream(
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // .bigbrain.ModelFramework framework = 1;
+      // .bigbrain.AIModelFramework.ModelFramework framework = 1;
       case 1: {
         if (static_cast< ::PROTOBUF_NAMESPACE_ID::uint8>(tag) == (8 & 0xFF)) {
           int value = 0;
           DO_((::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::ReadPrimitive<
                    int, ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_ENUM>(
                  input, &value)));
-          set_framework(static_cast< ::bigbrain::ModelFramework >(value));
+          set_framework(static_cast< ::bigbrain::AIModelFramework_ModelFramework >(value));
         } else {
           goto handle_unusual;
         }
@@ -825,7 +888,7 @@ void AIModelFramework::SerializeWithCachedSizes(
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // .bigbrain.ModelFramework framework = 1;
+  // .bigbrain.AIModelFramework.ModelFramework framework = 1;
   if (this->framework() != 0) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteEnum(
       1, this->framework(), output);
@@ -854,7 +917,7 @@ void AIModelFramework::SerializeWithCachedSizes(
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // .bigbrain.ModelFramework framework = 1;
+  // .bigbrain.AIModelFramework.ModelFramework framework = 1;
   if (this->framework() != 0) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteEnumToArray(
       1, this->framework(), target);
@@ -899,7 +962,7 @@ size_t AIModelFramework::ByteSizeLong() const {
         this->version());
   }
 
-  // .bigbrain.ModelFramework framework = 1;
+  // .bigbrain.AIModelFramework.ModelFramework framework = 1;
   if (this->framework() != 0) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->framework());
@@ -2879,75 +2942,75 @@ void AICapabilityRequest::InternalSwap(AICapabilityRequest* other) {
 
 // ===================================================================
 
-void AICapabilityResponse::InitAsDefaultInstance() {
+void AIModelsInformation::InitAsDefaultInstance() {
 }
-class AICapabilityResponse::HasBitSetters {
+class AIModelsInformation::HasBitSetters {
  public:
 };
 
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
-const int AICapabilityResponse::kModelsInformationFieldNumber;
+const int AIModelsInformation::kModelInformationFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
-AICapabilityResponse::AICapabilityResponse()
+AIModelsInformation::AIModelsInformation()
   : ::PROTOBUF_NAMESPACE_ID::Message(), _internal_metadata_(nullptr) {
   SharedCtor();
-  // @@protoc_insertion_point(constructor:bigbrain.AICapabilityResponse)
+  // @@protoc_insertion_point(constructor:bigbrain.AIModelsInformation)
 }
-AICapabilityResponse::AICapabilityResponse(const AICapabilityResponse& from)
+AIModelsInformation::AIModelsInformation(const AIModelsInformation& from)
   : ::PROTOBUF_NAMESPACE_ID::Message(),
       _internal_metadata_(nullptr),
-      models_information_(from.models_information_) {
+      model_information_(from.model_information_) {
   _internal_metadata_.MergeFrom(from._internal_metadata_);
-  // @@protoc_insertion_point(copy_constructor:bigbrain.AICapabilityResponse)
+  // @@protoc_insertion_point(copy_constructor:bigbrain.AIModelsInformation)
 }
 
-void AICapabilityResponse::SharedCtor() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_AICapabilityResponse_bigbrain_2eproto.base);
+void AIModelsInformation::SharedCtor() {
+  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_AIModelsInformation_bigbrain_2eproto.base);
 }
 
-AICapabilityResponse::~AICapabilityResponse() {
-  // @@protoc_insertion_point(destructor:bigbrain.AICapabilityResponse)
+AIModelsInformation::~AIModelsInformation() {
+  // @@protoc_insertion_point(destructor:bigbrain.AIModelsInformation)
   SharedDtor();
 }
 
-void AICapabilityResponse::SharedDtor() {
+void AIModelsInformation::SharedDtor() {
 }
 
-void AICapabilityResponse::SetCachedSize(int size) const {
+void AIModelsInformation::SetCachedSize(int size) const {
   _cached_size_.Set(size);
 }
-const AICapabilityResponse& AICapabilityResponse::default_instance() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_AICapabilityResponse_bigbrain_2eproto.base);
+const AIModelsInformation& AIModelsInformation::default_instance() {
+  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_AIModelsInformation_bigbrain_2eproto.base);
   return *internal_default_instance();
 }
 
 
-void AICapabilityResponse::Clear() {
-// @@protoc_insertion_point(message_clear_start:bigbrain.AICapabilityResponse)
+void AIModelsInformation::Clear() {
+// @@protoc_insertion_point(message_clear_start:bigbrain.AIModelsInformation)
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  models_information_.Clear();
+  model_information_.Clear();
   _internal_metadata_.Clear();
 }
 
 #if GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
-const char* AICapabilityResponse::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+const char* AIModelsInformation::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
   while (!ctx->Done(&ptr)) {
     ::PROTOBUF_NAMESPACE_ID::uint32 tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // repeated .bigbrain.AIModelInformation models_information = 1;
+      // repeated .bigbrain.AIModelInformation model_information = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
           ptr -= 1;
           do {
             ptr += 1;
-            ptr = ctx->ParseMessage(add_models_information(), ptr);
+            ptr = ctx->ParseMessage(add_model_information(), ptr);
             CHK_(ptr);
             if (!ctx->DataAvailable(ptr)) break;
           } while (::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<::PROTOBUF_NAMESPACE_ID::uint8>(ptr) == 10);
@@ -2973,21 +3036,21 @@ failure:
 #undef CHK_
 }
 #else  // GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
-bool AICapabilityResponse::MergePartialFromCodedStream(
+bool AIModelsInformation::MergePartialFromCodedStream(
     ::PROTOBUF_NAMESPACE_ID::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!PROTOBUF_PREDICT_TRUE(EXPRESSION)) goto failure
   ::PROTOBUF_NAMESPACE_ID::uint32 tag;
-  // @@protoc_insertion_point(parse_start:bigbrain.AICapabilityResponse)
+  // @@protoc_insertion_point(parse_start:bigbrain.AIModelsInformation)
   for (;;) {
     ::std::pair<::PROTOBUF_NAMESPACE_ID::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // repeated .bigbrain.AIModelInformation models_information = 1;
+      // repeated .bigbrain.AIModelInformation model_information = 1;
       case 1: {
         if (static_cast< ::PROTOBUF_NAMESPACE_ID::uint8>(tag) == (10 & 0xFF)) {
           DO_(::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::ReadMessage(
-                input, add_models_information()));
+                input, add_model_information()));
         } else {
           goto handle_unusual;
         }
@@ -3006,27 +3069,27 @@ bool AICapabilityResponse::MergePartialFromCodedStream(
     }
   }
 success:
-  // @@protoc_insertion_point(parse_success:bigbrain.AICapabilityResponse)
+  // @@protoc_insertion_point(parse_success:bigbrain.AIModelsInformation)
   return true;
 failure:
-  // @@protoc_insertion_point(parse_failure:bigbrain.AICapabilityResponse)
+  // @@protoc_insertion_point(parse_failure:bigbrain.AIModelsInformation)
   return false;
 #undef DO_
 }
 #endif  // GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
 
-void AICapabilityResponse::SerializeWithCachedSizes(
+void AIModelsInformation::SerializeWithCachedSizes(
     ::PROTOBUF_NAMESPACE_ID::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:bigbrain.AICapabilityResponse)
+  // @@protoc_insertion_point(serialize_start:bigbrain.AIModelsInformation)
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // repeated .bigbrain.AIModelInformation models_information = 1;
+  // repeated .bigbrain.AIModelInformation model_information = 1;
   for (unsigned int i = 0,
-      n = static_cast<unsigned int>(this->models_information_size()); i < n; i++) {
+      n = static_cast<unsigned int>(this->model_information_size()); i < n; i++) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteMessageMaybeToArray(
       1,
-      this->models_information(static_cast<int>(i)),
+      this->model_information(static_cast<int>(i)),
       output);
   }
 
@@ -3034,33 +3097,33 @@ void AICapabilityResponse::SerializeWithCachedSizes(
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::SerializeUnknownFields(
         _internal_metadata_.unknown_fields(), output);
   }
-  // @@protoc_insertion_point(serialize_end:bigbrain.AICapabilityResponse)
+  // @@protoc_insertion_point(serialize_end:bigbrain.AIModelsInformation)
 }
 
-::PROTOBUF_NAMESPACE_ID::uint8* AICapabilityResponse::InternalSerializeWithCachedSizesToArray(
+::PROTOBUF_NAMESPACE_ID::uint8* AIModelsInformation::InternalSerializeWithCachedSizesToArray(
     ::PROTOBUF_NAMESPACE_ID::uint8* target) const {
-  // @@protoc_insertion_point(serialize_to_array_start:bigbrain.AICapabilityResponse)
+  // @@protoc_insertion_point(serialize_to_array_start:bigbrain.AIModelsInformation)
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // repeated .bigbrain.AIModelInformation models_information = 1;
+  // repeated .bigbrain.AIModelInformation model_information = 1;
   for (unsigned int i = 0,
-      n = static_cast<unsigned int>(this->models_information_size()); i < n; i++) {
+      n = static_cast<unsigned int>(this->model_information_size()); i < n; i++) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
       InternalWriteMessageToArray(
-        1, this->models_information(static_cast<int>(i)), target);
+        1, this->model_information(static_cast<int>(i)), target);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::SerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields(), target);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:bigbrain.AICapabilityResponse)
+  // @@protoc_insertion_point(serialize_to_array_end:bigbrain.AIModelsInformation)
   return target;
 }
 
-size_t AICapabilityResponse::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:bigbrain.AICapabilityResponse)
+size_t AIModelsInformation::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:bigbrain.AIModelsInformation)
   size_t total_size = 0;
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -3072,14 +3135,14 @@ size_t AICapabilityResponse::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // repeated .bigbrain.AIModelInformation models_information = 1;
+  // repeated .bigbrain.AIModelInformation model_information = 1;
   {
-    unsigned int count = static_cast<unsigned int>(this->models_information_size());
+    unsigned int count = static_cast<unsigned int>(this->model_information_size());
     total_size += 1UL * count;
     for (unsigned int i = 0; i < count; i++) {
       total_size +=
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
-          this->models_information(static_cast<int>(i)));
+          this->model_information(static_cast<int>(i)));
     }
   }
 
@@ -3088,60 +3151,558 @@ size_t AICapabilityResponse::ByteSizeLong() const {
   return total_size;
 }
 
-void AICapabilityResponse::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:bigbrain.AICapabilityResponse)
+void AIModelsInformation::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:bigbrain.AIModelsInformation)
   GOOGLE_DCHECK_NE(&from, this);
-  const AICapabilityResponse* source =
-      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<AICapabilityResponse>(
+  const AIModelsInformation* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<AIModelsInformation>(
           &from);
   if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:bigbrain.AICapabilityResponse)
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:bigbrain.AIModelsInformation)
     ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
   } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:bigbrain.AICapabilityResponse)
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:bigbrain.AIModelsInformation)
     MergeFrom(*source);
   }
 }
 
-void AICapabilityResponse::MergeFrom(const AICapabilityResponse& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:bigbrain.AICapabilityResponse)
+void AIModelsInformation::MergeFrom(const AIModelsInformation& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:bigbrain.AIModelsInformation)
   GOOGLE_DCHECK_NE(&from, this);
   _internal_metadata_.MergeFrom(from._internal_metadata_);
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  models_information_.MergeFrom(from.models_information_);
+  model_information_.MergeFrom(from.model_information_);
 }
 
-void AICapabilityResponse::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:bigbrain.AICapabilityResponse)
+void AIModelsInformation::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:bigbrain.AIModelsInformation)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void AICapabilityResponse::CopyFrom(const AICapabilityResponse& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:bigbrain.AICapabilityResponse)
+void AIModelsInformation::CopyFrom(const AIModelsInformation& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:bigbrain.AIModelsInformation)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool AICapabilityResponse::IsInitialized() const {
+bool AIModelsInformation::IsInitialized() const {
   return true;
 }
 
-void AICapabilityResponse::Swap(AICapabilityResponse* other) {
+void AIModelsInformation::Swap(AIModelsInformation* other) {
   if (other == this) return;
   InternalSwap(other);
 }
-void AICapabilityResponse::InternalSwap(AICapabilityResponse* other) {
+void AIModelsInformation::InternalSwap(AIModelsInformation* other) {
   using std::swap;
   _internal_metadata_.Swap(&other->_internal_metadata_);
-  CastToBase(&models_information_)->InternalSwap(CastToBase(&other->models_information_));
+  CastToBase(&model_information_)->InternalSwap(CastToBase(&other->model_information_));
 }
 
-::PROTOBUF_NAMESPACE_ID::Metadata AICapabilityResponse::GetMetadata() const {
+::PROTOBUF_NAMESPACE_ID::Metadata AIModelsInformation::GetMetadata() const {
+  return GetMetadataStatic();
+}
+
+
+// ===================================================================
+
+void AIResponse::InitAsDefaultInstance() {
+  ::bigbrain::_AIResponse_default_instance_.model_ = const_cast< ::bigbrain::AICapability*>(
+      ::bigbrain::AICapability::internal_default_instance());
+  ::bigbrain::_AIResponse_default_instance_.models_information_ = const_cast< ::bigbrain::AIModelsInformation*>(
+      ::bigbrain::AIModelsInformation::internal_default_instance());
+}
+class AIResponse::HasBitSetters {
+ public:
+  static const ::bigbrain::AICapability& model(const AIResponse* msg);
+  static const ::bigbrain::AIModelsInformation& models_information(const AIResponse* msg);
+};
+
+const ::bigbrain::AICapability&
+AIResponse::HasBitSetters::model(const AIResponse* msg) {
+  return *msg->result_.model_;
+}
+const ::bigbrain::AIModelsInformation&
+AIResponse::HasBitSetters::models_information(const AIResponse* msg) {
+  return *msg->result_.models_information_;
+}
+void AIResponse::set_allocated_model(::bigbrain::AICapability* model) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaNoVirtual();
+  clear_result();
+  if (model) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena = nullptr;
+    if (message_arena != submessage_arena) {
+      model = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, model, submessage_arena);
+    }
+    set_has_model();
+    result_.model_ = model;
+  }
+  // @@protoc_insertion_point(field_set_allocated:bigbrain.AIResponse.model)
+}
+void AIResponse::set_allocated_models_information(::bigbrain::AIModelsInformation* models_information) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaNoVirtual();
+  clear_result();
+  if (models_information) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena = nullptr;
+    if (message_arena != submessage_arena) {
+      models_information = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, models_information, submessage_arena);
+    }
+    set_has_models_information();
+    result_.models_information_ = models_information;
+  }
+  // @@protoc_insertion_point(field_set_allocated:bigbrain.AIResponse.models_information)
+}
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int AIResponse::kSuccessFieldNumber;
+const int AIResponse::kErrorFieldNumber;
+const int AIResponse::kModelFieldNumber;
+const int AIResponse::kModelsInformationFieldNumber;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+AIResponse::AIResponse()
+  : ::PROTOBUF_NAMESPACE_ID::Message(), _internal_metadata_(nullptr) {
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:bigbrain.AIResponse)
+}
+AIResponse::AIResponse(const AIResponse& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message(),
+      _internal_metadata_(nullptr) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  error_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  if (from.error().size() > 0) {
+    error_.AssignWithDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from.error_);
+  }
+  success_ = from.success_;
+  clear_has_result();
+  switch (from.result_case()) {
+    case kModel: {
+      mutable_model()->::bigbrain::AICapability::MergeFrom(from.model());
+      break;
+    }
+    case kModelsInformation: {
+      mutable_models_information()->::bigbrain::AIModelsInformation::MergeFrom(from.models_information());
+      break;
+    }
+    case RESULT_NOT_SET: {
+      break;
+    }
+  }
+  // @@protoc_insertion_point(copy_constructor:bigbrain.AIResponse)
+}
+
+void AIResponse::SharedCtor() {
+  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_AIResponse_bigbrain_2eproto.base);
+  error_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  success_ = false;
+  clear_has_result();
+}
+
+AIResponse::~AIResponse() {
+  // @@protoc_insertion_point(destructor:bigbrain.AIResponse)
+  SharedDtor();
+}
+
+void AIResponse::SharedDtor() {
+  error_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  if (has_result()) {
+    clear_result();
+  }
+}
+
+void AIResponse::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+const AIResponse& AIResponse::default_instance() {
+  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_AIResponse_bigbrain_2eproto.base);
+  return *internal_default_instance();
+}
+
+
+void AIResponse::clear_result() {
+// @@protoc_insertion_point(one_of_clear_start:bigbrain.AIResponse)
+  switch (result_case()) {
+    case kModel: {
+      delete result_.model_;
+      break;
+    }
+    case kModelsInformation: {
+      delete result_.models_information_;
+      break;
+    }
+    case RESULT_NOT_SET: {
+      break;
+    }
+  }
+  _oneof_case_[0] = RESULT_NOT_SET;
+}
+
+
+void AIResponse::Clear() {
+// @@protoc_insertion_point(message_clear_start:bigbrain.AIResponse)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  error_.ClearToEmptyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  success_ = false;
+  clear_result();
+  _internal_metadata_.Clear();
+}
+
+#if GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+const char* AIResponse::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    CHK_(ptr);
+    switch (tag >> 3) {
+      // bool success = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
+          success_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // string error = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParserUTF8(mutable_error(), ptr, ctx, "bigbrain.AIResponse.error");
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // .bigbrain.AICapability model = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 26)) {
+          ptr = ctx->ParseMessage(mutable_model(), ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // .bigbrain.AIModelsInformation models_information = 4;
+      case 4:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 34)) {
+          ptr = ctx->ParseMessage(mutable_models_information(), ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      default: {
+      handle_unusual:
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->SetLastTag(tag);
+          goto success;
+        }
+        ptr = UnknownFieldParse(tag, &_internal_metadata_, ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
+      }
+    }  // switch
+  }  // while
+success:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto success;
+#undef CHK_
+}
+#else  // GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+bool AIResponse::MergePartialFromCodedStream(
+    ::PROTOBUF_NAMESPACE_ID::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!PROTOBUF_PREDICT_TRUE(EXPRESSION)) goto failure
+  ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+  // @@protoc_insertion_point(parse_start:bigbrain.AIResponse)
+  for (;;) {
+    ::std::pair<::PROTOBUF_NAMESPACE_ID::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // bool success = 1;
+      case 1: {
+        if (static_cast< ::PROTOBUF_NAMESPACE_ID::uint8>(tag) == (8 & 0xFF)) {
+
+          DO_((::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::ReadPrimitive<
+                   bool, ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_BOOL>(
+                 input, &success_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // string error = 2;
+      case 2: {
+        if (static_cast< ::PROTOBUF_NAMESPACE_ID::uint8>(tag) == (18 & 0xFF)) {
+          DO_(::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::ReadString(
+                input, this->mutable_error()));
+          DO_(::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+            this->error().data(), static_cast<int>(this->error().length()),
+            ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::PARSE,
+            "bigbrain.AIResponse.error"));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // .bigbrain.AICapability model = 3;
+      case 3: {
+        if (static_cast< ::PROTOBUF_NAMESPACE_ID::uint8>(tag) == (26 & 0xFF)) {
+          DO_(::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::ReadMessage(
+               input, mutable_model()));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // .bigbrain.AIModelsInformation models_information = 4;
+      case 4: {
+        if (static_cast< ::PROTOBUF_NAMESPACE_ID::uint8>(tag) == (34 & 0xFF)) {
+          DO_(::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::ReadMessage(
+               input, mutable_models_information()));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0) {
+          goto success;
+        }
+        DO_(::PROTOBUF_NAMESPACE_ID::internal::WireFormat::SkipField(
+              input, tag, _internal_metadata_.mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:bigbrain.AIResponse)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:bigbrain.AIResponse)
+  return false;
+#undef DO_
+}
+#endif  // GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+
+void AIResponse::SerializeWithCachedSizes(
+    ::PROTOBUF_NAMESPACE_ID::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:bigbrain.AIResponse)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // bool success = 1;
+  if (this->success() != 0) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBool(1, this->success(), output);
+  }
+
+  // string error = 2;
+  if (this->error().size() > 0) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->error().data(), static_cast<int>(this->error().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "bigbrain.AIResponse.error");
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteStringMaybeAliased(
+      2, this->error(), output);
+  }
+
+  // .bigbrain.AICapability model = 3;
+  if (has_model()) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteMessageMaybeToArray(
+      3, HasBitSetters::model(this), output);
+  }
+
+  // .bigbrain.AIModelsInformation models_information = 4;
+  if (has_models_information()) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteMessageMaybeToArray(
+      4, HasBitSetters::models_information(this), output);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::SerializeUnknownFields(
+        _internal_metadata_.unknown_fields(), output);
+  }
+  // @@protoc_insertion_point(serialize_end:bigbrain.AIResponse)
+}
+
+::PROTOBUF_NAMESPACE_ID::uint8* AIResponse::InternalSerializeWithCachedSizesToArray(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target) const {
+  // @@protoc_insertion_point(serialize_to_array_start:bigbrain.AIResponse)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // bool success = 1;
+  if (this->success() != 0) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(1, this->success(), target);
+  }
+
+  // string error = 2;
+  if (this->error().size() > 0) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->error().data(), static_cast<int>(this->error().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "bigbrain.AIResponse.error");
+    target =
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteStringToArray(
+        2, this->error(), target);
+  }
+
+  // .bigbrain.AICapability model = 3;
+  if (has_model()) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessageToArray(
+        3, HasBitSetters::model(this), target);
+  }
+
+  // .bigbrain.AIModelsInformation models_information = 4;
+  if (has_models_information()) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessageToArray(
+        4, HasBitSetters::models_information(this), target);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::SerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields(), target);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:bigbrain.AIResponse)
+  return target;
+}
+
+size_t AIResponse::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:bigbrain.AIResponse)
+  size_t total_size = 0;
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    total_size +=
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::ComputeUnknownFieldsSize(
+        _internal_metadata_.unknown_fields());
+  }
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // string error = 2;
+  if (this->error().size() > 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->error());
+  }
+
+  // bool success = 1;
+  if (this->success() != 0) {
+    total_size += 1 + 1;
+  }
+
+  switch (result_case()) {
+    // .bigbrain.AICapability model = 3;
+    case kModel: {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+          *result_.model_);
+      break;
+    }
+    // .bigbrain.AIModelsInformation models_information = 4;
+    case kModelsInformation: {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+          *result_.models_information_);
+      break;
+    }
+    case RESULT_NOT_SET: {
+      break;
+    }
+  }
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void AIResponse::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:bigbrain.AIResponse)
+  GOOGLE_DCHECK_NE(&from, this);
+  const AIResponse* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<AIResponse>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:bigbrain.AIResponse)
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:bigbrain.AIResponse)
+    MergeFrom(*source);
+  }
+}
+
+void AIResponse::MergeFrom(const AIResponse& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:bigbrain.AIResponse)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from.error().size() > 0) {
+
+    error_.AssignWithDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from.error_);
+  }
+  if (from.success() != 0) {
+    set_success(from.success());
+  }
+  switch (from.result_case()) {
+    case kModel: {
+      mutable_model()->::bigbrain::AICapability::MergeFrom(from.model());
+      break;
+    }
+    case kModelsInformation: {
+      mutable_models_information()->::bigbrain::AIModelsInformation::MergeFrom(from.models_information());
+      break;
+    }
+    case RESULT_NOT_SET: {
+      break;
+    }
+  }
+}
+
+void AIResponse::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:bigbrain.AIResponse)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void AIResponse::CopyFrom(const AIResponse& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:bigbrain.AIResponse)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool AIResponse::IsInitialized() const {
+  return true;
+}
+
+void AIResponse::Swap(AIResponse* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void AIResponse::InternalSwap(AIResponse* other) {
+  using std::swap;
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  error_.Swap(&other->error_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
+    GetArenaNoVirtual());
+  swap(success_, other->success_);
+  swap(result_, other->result_);
+  swap(_oneof_case_[0], other->_oneof_case_[0]);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata AIResponse::GetMetadata() const {
   return GetMetadataStatic();
 }
 
@@ -3167,8 +3728,11 @@ template<> PROTOBUF_NOINLINE ::bigbrain::AIModelContainer* Arena::CreateMaybeMes
 template<> PROTOBUF_NOINLINE ::bigbrain::AICapabilityRequest* Arena::CreateMaybeMessage< ::bigbrain::AICapabilityRequest >(Arena* arena) {
   return Arena::CreateInternal< ::bigbrain::AICapabilityRequest >(arena);
 }
-template<> PROTOBUF_NOINLINE ::bigbrain::AICapabilityResponse* Arena::CreateMaybeMessage< ::bigbrain::AICapabilityResponse >(Arena* arena) {
-  return Arena::CreateInternal< ::bigbrain::AICapabilityResponse >(arena);
+template<> PROTOBUF_NOINLINE ::bigbrain::AIModelsInformation* Arena::CreateMaybeMessage< ::bigbrain::AIModelsInformation >(Arena* arena) {
+  return Arena::CreateInternal< ::bigbrain::AIModelsInformation >(arena);
+}
+template<> PROTOBUF_NOINLINE ::bigbrain::AIResponse* Arena::CreateMaybeMessage< ::bigbrain::AIResponse >(Arena* arena) {
+  return Arena::CreateInternal< ::bigbrain::AIResponse >(arena);
 }
 PROTOBUF_NAMESPACE_CLOSE
 

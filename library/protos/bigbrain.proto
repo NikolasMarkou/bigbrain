@@ -2,30 +2,28 @@ syntax = "proto3";
 
 package bigbrain;
 
-enum IOType {
-    IO_OTHER = 0;
-    IO_IMAGE = 1;
-    IO_TEXT = 2;
-    IO_AUDIO = 3;
-    IO_GRAPH = 4;
-    IO_VECTOR = 5;
-    IO_MATRIX = 6;
-    IO_BBOX = 7;
-}
-
-// How the model was created
-enum ModelFramework {
-    FRAMEWORK_TENSORFLOW = 0;
-    FRAMEWORK_PYTORCH = 1;
-    FRAMEWORK_OTHER =2;
-}
 
 message AIModelIO {
+    enum IOType {
+        OTHER = 0;
+        IMAGE = 1;
+        TEXT = 2;
+        AUDIO = 3;
+        GRAPH = 4;
+        VECTOR = 5;
+        MATRIX = 6;
+        BBOX = 7;
+    }
     IOType type = 1;
     string name = 2;
 }
 
 message AIModelFramework {
+    enum ModelFramework {
+        OTHER = 0;
+        TENSORFLOW = 1;
+        PYTORCH = 2;
+    }
     ModelFramework framework = 1;
     string version = 2;
 }
@@ -76,14 +74,29 @@ message AIModelContainer {
 }
 
 service AIService {
-    rpc ReportCapabilities (AICapabilityRequest) returns (AICapabilityResponse) {}
+    rpc ReportCapabilities (AICapabilityRequest) returns (AIResponse) {}
+    rpc RegisterCapability (AICapability) returns (AIResponse) {}
 }
 
 message AICapabilityRequest{
 
 };
 
-message AICapabilityResponse{
-    repeated AIModelInformation models_information = 1;
+message AIModelsInformation{
+    repeated AIModelInformation model_information = 1;
 };
+
+message AIResponse{
+    bool success = 1;
+    string error = 2;
+    oneof result {
+        AICapability model = 3;
+        AIModelsInformation models_information = 4;
+    }
+};
+
+
+
+
+
 

@@ -21,10 +21,6 @@ using grpc::Server;
 using grpc::ServerBuilder;
 using grpc::ServerContext;
 
-using bigbrain::AIService;
-using bigbrain::AICapabilityRequest;
-using bigbrain::AICapabilityResponse;
-
 //----------------------------------------------------------------
 
 void run_server(

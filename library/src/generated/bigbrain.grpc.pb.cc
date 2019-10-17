@@ -20,6 +20,7 @@ namespace bigbrain {
 
 static const char* AIService_method_names[] = {
   "/bigbrain.AIService/ReportCapabilities",
+  "/bigbrain.AIService/RegisterCapability",
 };
 
 std::unique_ptr< AIService::Stub> AIService::NewStub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options) {
@@ -30,48 +31,89 @@ std::unique_ptr< AIService::Stub> AIService::NewStub(const std::shared_ptr< ::gr
 
 AIService::Stub::Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel)
   : channel_(channel), rpcmethod_ReportCapabilities_(AIService_method_names[0], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_RegisterCapability_(AIService_method_names[1], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
   {}
 
-::grpc::Status AIService::Stub::ReportCapabilities(::grpc::ClientContext* context, const ::bigbrain::AICapabilityRequest& request, ::bigbrain::AICapabilityResponse* response) {
+::grpc::Status AIService::Stub::ReportCapabilities(::grpc::ClientContext* context, const ::bigbrain::AICapabilityRequest& request, ::bigbrain::AIResponse* response) {
   return ::grpc::internal::BlockingUnaryCall(channel_.get(), rpcmethod_ReportCapabilities_, context, request, response);
 }
 
-void AIService::Stub::experimental_async::ReportCapabilities(::grpc::ClientContext* context, const ::bigbrain::AICapabilityRequest* request, ::bigbrain::AICapabilityResponse* response, std::function<void(::grpc::Status)> f) {
+void AIService::Stub::experimental_async::ReportCapabilities(::grpc::ClientContext* context, const ::bigbrain::AICapabilityRequest* request, ::bigbrain::AIResponse* response, std::function<void(::grpc::Status)> f) {
   ::grpc_impl::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_ReportCapabilities_, context, request, response, std::move(f));
 }
 
-void AIService::Stub::experimental_async::ReportCapabilities(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::bigbrain::AICapabilityResponse* response, std::function<void(::grpc::Status)> f) {
+void AIService::Stub::experimental_async::ReportCapabilities(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::bigbrain::AIResponse* response, std::function<void(::grpc::Status)> f) {
   ::grpc_impl::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_ReportCapabilities_, context, request, response, std::move(f));
 }
 
-void AIService::Stub::experimental_async::ReportCapabilities(::grpc::ClientContext* context, const ::bigbrain::AICapabilityRequest* request, ::bigbrain::AICapabilityResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
+void AIService::Stub::experimental_async::ReportCapabilities(::grpc::ClientContext* context, const ::bigbrain::AICapabilityRequest* request, ::bigbrain::AIResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
   ::grpc_impl::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_ReportCapabilities_, context, request, response, reactor);
 }
 
-void AIService::Stub::experimental_async::ReportCapabilities(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::bigbrain::AICapabilityResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
+void AIService::Stub::experimental_async::ReportCapabilities(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::bigbrain::AIResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
   ::grpc_impl::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_ReportCapabilities_, context, request, response, reactor);
 }
 
-::grpc::ClientAsyncResponseReader< ::bigbrain::AICapabilityResponse>* AIService::Stub::AsyncReportCapabilitiesRaw(::grpc::ClientContext* context, const ::bigbrain::AICapabilityRequest& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc_impl::internal::ClientAsyncResponseReaderFactory< ::bigbrain::AICapabilityResponse>::Create(channel_.get(), cq, rpcmethod_ReportCapabilities_, context, request, true);
+::grpc::ClientAsyncResponseReader< ::bigbrain::AIResponse>* AIService::Stub::AsyncReportCapabilitiesRaw(::grpc::ClientContext* context, const ::bigbrain::AICapabilityRequest& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc_impl::internal::ClientAsyncResponseReaderFactory< ::bigbrain::AIResponse>::Create(channel_.get(), cq, rpcmethod_ReportCapabilities_, context, request, true);
 }
 
-::grpc::ClientAsyncResponseReader< ::bigbrain::AICapabilityResponse>* AIService::Stub::PrepareAsyncReportCapabilitiesRaw(::grpc::ClientContext* context, const ::bigbrain::AICapabilityRequest& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc_impl::internal::ClientAsyncResponseReaderFactory< ::bigbrain::AICapabilityResponse>::Create(channel_.get(), cq, rpcmethod_ReportCapabilities_, context, request, false);
+::grpc::ClientAsyncResponseReader< ::bigbrain::AIResponse>* AIService::Stub::PrepareAsyncReportCapabilitiesRaw(::grpc::ClientContext* context, const ::bigbrain::AICapabilityRequest& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc_impl::internal::ClientAsyncResponseReaderFactory< ::bigbrain::AIResponse>::Create(channel_.get(), cq, rpcmethod_ReportCapabilities_, context, request, false);
+}
+
+::grpc::Status AIService::Stub::RegisterCapability(::grpc::ClientContext* context, const ::bigbrain::AICapability& request, ::bigbrain::AIResponse* response) {
+  return ::grpc::internal::BlockingUnaryCall(channel_.get(), rpcmethod_RegisterCapability_, context, request, response);
+}
+
+void AIService::Stub::experimental_async::RegisterCapability(::grpc::ClientContext* context, const ::bigbrain::AICapability* request, ::bigbrain::AIResponse* response, std::function<void(::grpc::Status)> f) {
+  ::grpc_impl::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_RegisterCapability_, context, request, response, std::move(f));
+}
+
+void AIService::Stub::experimental_async::RegisterCapability(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::bigbrain::AIResponse* response, std::function<void(::grpc::Status)> f) {
+  ::grpc_impl::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_RegisterCapability_, context, request, response, std::move(f));
+}
+
+void AIService::Stub::experimental_async::RegisterCapability(::grpc::ClientContext* context, const ::bigbrain::AICapability* request, ::bigbrain::AIResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
+  ::grpc_impl::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_RegisterCapability_, context, request, response, reactor);
+}
+
+void AIService::Stub::experimental_async::RegisterCapability(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::bigbrain::AIResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
+  ::grpc_impl::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_RegisterCapability_, context, request, response, reactor);
+}
+
+::grpc::ClientAsyncResponseReader< ::bigbrain::AIResponse>* AIService::Stub::AsyncRegisterCapabilityRaw(::grpc::ClientContext* context, const ::bigbrain::AICapability& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc_impl::internal::ClientAsyncResponseReaderFactory< ::bigbrain::AIResponse>::Create(channel_.get(), cq, rpcmethod_RegisterCapability_, context, request, true);
+}
+
+::grpc::ClientAsyncResponseReader< ::bigbrain::AIResponse>* AIService::Stub::PrepareAsyncRegisterCapabilityRaw(::grpc::ClientContext* context, const ::bigbrain::AICapability& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc_impl::internal::ClientAsyncResponseReaderFactory< ::bigbrain::AIResponse>::Create(channel_.get(), cq, rpcmethod_RegisterCapability_, context, request, false);
 }
 
 AIService::Service::Service() {
   AddMethod(new ::grpc::internal::RpcServiceMethod(
       AIService_method_names[0],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
-      new ::grpc::internal::RpcMethodHandler< AIService::Service, ::bigbrain::AICapabilityRequest, ::bigbrain::AICapabilityResponse>(
+      new ::grpc::internal::RpcMethodHandler< AIService::Service, ::bigbrain::AICapabilityRequest, ::bigbrain::AIResponse>(
           std::mem_fn(&AIService::Service::ReportCapabilities), this)));
+  AddMethod(new ::grpc::internal::RpcServiceMethod(
+      AIService_method_names[1],
+      ::grpc::internal::RpcMethod::NORMAL_RPC,
+      new ::grpc::internal::RpcMethodHandler< AIService::Service, ::bigbrain::AICapability, ::bigbrain::AIResponse>(
+          std::mem_fn(&AIService::Service::RegisterCapability), this)));
 }
 
 AIService::Service::~Service() {
 }
 
-::grpc::Status AIService::Service::ReportCapabilities(::grpc::ServerContext* context, const ::bigbrain::AICapabilityRequest* request, ::bigbrain::AICapabilityResponse* response) {
+::grpc::Status AIService::Service::ReportCapabilities(::grpc::ServerContext* context, const ::bigbrain::AICapabilityRequest* request, ::bigbrain::AIResponse* response) {
+  (void) context;
+  (void) request;
+  (void) response;
+  return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+}
+
+::grpc::Status AIService::Service::RegisterCapability(::grpc::ServerContext* context, const ::bigbrain::AICapability* request, ::bigbrain::AIResponse* response) {
   (void) context;
   (void) request;
   (void) response;

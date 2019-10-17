@@ -22,8 +22,8 @@ using grpc::ServerBuilder;
 using grpc::ServerContext;
 
 using bigbrain::AIService;
+using bigbrain::AIResponse;
 using bigbrain::AICapabilityRequest;
-using bigbrain::AICapabilityResponse;
 
 //----------------------------------------------------------------
 
@@ -79,26 +79,36 @@ Status
 AIServiceImpl::ReportCapabilities(
     ServerContext* context, 
     const AICapabilityRequest* request,
-    AICapabilityResponse* reply) 
+    AIResponse* response) 
 {
     leveldb::Iterator* it = m_db->NewIterator(leveldb::ReadOptions());
     {
-        for (it->SeekToFirst(); it->Valid(); it->Next()) {
+        response->set_success(true);
+
+        for (it->SeekToFirst(); it->Valid(); it->Next()) 
+        {
             LOG(INFO) << "Loading " << it->key().ToString();
 
-            auto model_information = reply->add_models_information();
+            auto models_information = response->mutable_models_information();
+            auto model_information = models_information->add_model_information();
 
             bigbrain::AICapability tmp_ai_capability;
             
-            if (tmp_ai_capability.ParseFromString(it->value().ToString()) == false){
+            if (tmp_ai_capability.ParseFromString(it->value().ToString()) == false)
+            {
                 LOG(ERROR) << "Failed to parse [" << it->key().ToString() << "]";
-                continue;
+                response->set_success(false);
+                response->set_error(std::string("Failed to parse key"));
+                return Status::CANCELLED;
             }
             
             // Check for any errors found during the scan
-            if (it->status().ok() == false){
+            if (it->status().ok() == false)
+            {
                 LOG(ERROR) << it->status().ToString();
-                continue;
+                response->set_success(false);
+                response->set_error(it->status().ToString());
+                return Status::CANCELLED;
             }
 
             model_information->CopyFrom(tmp_ai_capability.information());
